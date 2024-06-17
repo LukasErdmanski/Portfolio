@@ -31,12 +31,13 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             //TODO: Finally maybe assets property has to be changed to "assets": ["src/assets"].
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "assets": ["src/assets"],
+            // "assets": [
+            //   {
+            //     "glob": "**/*",
+            //     "input": "public"
+            //   }
+            // ],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
@@ -93,12 +94,13 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             //TODO: Finally maybe assets property has to be changed to "assets": ["src/assets"].
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "assets": ["src/assets"],
+            // "assets": [
+            //   {
+            //     "glob": "**/*",
+            //     "input": "public"
+            //   }
+            // ],
             "styles": ["src/styles.scss"],
             "scripts": []
           }

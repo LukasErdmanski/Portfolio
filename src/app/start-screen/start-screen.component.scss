@@ -1,4 +1,5 @@
 @import "src/modules/utilities/_vars";
+@import "src/modules/utilities/_button";
 @import "src/assets/fonts/_typography";
 
 .container {
@@ -39,8 +40,71 @@
         display: inline-block;
         font-size: $fs-headline3;
         font-weight: $fw-600;
-        color: $secondary-clr;
+        color: $secondary_clr;
         white-space: nowrap;
+      }
+    }
+    .mobile-btn {
+      display: none;
+      padding: 8px 12px;
+      font-family: $primary_font;
+      font-size: $fs-regular;
+    }
+  }
+  .socials {
+    position: absolute;
+    bottom: 110px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .email {
+      position: relative;
+      left: 0;
+      transform: rotate(-90deg) translateX(-20px);
+      transform-origin: top left;
+    }
+
+    a {
+      text-decoration: none;
+      color: $primary_clr;
+      font-family: $primary_font;
+    }
+
+    .call2action {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+
+      .img-container {
+        height: 160px;
+        overflow: hidden;
+        img {
+          transform: translateY(-100px);
+          animation: arrowDown 1.35s ease-in-out 2s infinite forwards;
+        }
+      }
+
+      @keyframes arrowDown {
+        from {
+          transform: translateY(-100px);
+        }
+        to {
+          transform: translateY(250px);
+        }
+      }
+
+      .text-container {
+        display: flex;
+        flex-direction: column;
+
+        div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
       }
     }
   }
