@@ -1,8 +1,9 @@
-@import "../modules/utilities/vars";
+@import "src/modules/utilities/_vars";
 
 section {
   min-height: 100%;
   width: 100%;
   padding: $padding-side;
-  background-color: aquamarine;
 }
+
+//TODO: Add padding zero to section last child later

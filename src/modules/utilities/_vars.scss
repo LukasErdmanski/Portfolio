@@ -1,0 +1,56 @@
+//primary font
+$primary_font: "Overpass";
+$secondary_font: "Syne";
+
+//font-weight
+$fw-100: 100;
+$fw-200: 200;
+$fw-300: 300;
+$fw-regular: 400;
+$fw-500: 500;
+$fw-600: 600;
+$fw-bold: 700;
+$fw-800: 800;
+$fw-black: 800;
+
+//font-size
+$fs-xxs: 12px;
+$fs-xs: 14px;
+$fs-s: 16px;
+$fs-sm: 18px;
+$fs-md: 20px;
+$fs-regular: 22px;
+$fs-lg: 30px;
+$fs-xl: 37px;
+$fs-headline: calc(20px + 6vw);
+$fs-headline1: clamp($fs-regular, calc($fs-sm + 3vw), 65px);
+$fs-headline2: clamp($fs-md, calc($fs-s + 3vw), 60px);
+$fs-headline3: clamp($fs-sm, calc($fs-xs + 2vw), 55px);
+$fs-headline4: clamp($fs-s, calc($fs-xxs + 1vw), 50px);
+
+//offset text shadow
+$ts-offset: $fs-headline3;
+
+//color
+$background_clr: #fffcf3;
+$primary_clr: #000000;
+$secondary_clr: #ff9900;
+$subtle_grey: #2d2d2d12;
+$red: #e84855;
+$green: #44cf6c;
+
+//padding
+$padding-side: 0 calc(20px + 5vw);
+
+//adnimation time
+$onHover: 225ms;
+$delay: 150ms;
+
+//border:
+$frame: 4px solid $primary_clr;
+
+//boxshadow
+$boxshadow: 0px 0px 2.2px rgba(0, 0, 0, 0.066),
+  0px 0px 5.3px rgba(0, 0, 0, 0.08), 0px 0px 10px rgba(0, 0, 0, 0.088),
+  0px 0px 17.9px rgba(0, 0, 0, 0.096), 0px 0px 33.4px rgba(0, 0, 0, 0.109),
+  0px 0px 80px rgba(0, 0, 0, 0.17);
