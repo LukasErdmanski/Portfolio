@@ -51,7 +51,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ],
 })
 export class StartScreenComponent {
-  moveTo(section: string): void {
+  moveToSection(section: string): void {
     document.location = '#' + section;
   }
 }
