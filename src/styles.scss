@@ -31,3 +31,23 @@ body {
     font-size: $fs-sm !important;
   }
 }
+
+h1 {
+  font-family: $secondary_font;
+  font-weight: $fw-black;
+  font-size: $fs-headline1;
+  color: $primary_clr;
+  width: fit-content;
+  margin-bottom: 5vh;
+  cursor: default;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  text-shadow: 0 0 $primary_clr;
+  transition: all 500ms ease-in-out;
+
+  &:hover {
+    color: $primary_clr;
+    text-shadow: $ts-offset calc($ts-offset/2) $secondary_clr;
+  }
+}
