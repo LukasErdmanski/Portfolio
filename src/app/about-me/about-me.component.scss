@@ -40,15 +40,32 @@
     transition: all 225ms ease-in-out;
 
     .img-wrapper {
+      background-color: darkcyan;
+
       $img-size: clamp(300px, 30vw, 500px);
+      width: $img-size;
+      height: $img-size;
       $aspect-ratio: 1;
       position: relative;
 
+      background-color: darkcyan;
+      width: clamp(300px, 30vw, 500px);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1;
+
+      display: flex;
+      justify-content: center;
+
       img {
-        width: $img-size;
-        aspect-ratio: $aspect-ratio;
-        object-fit: cover;
+        // aspect-ratio: $aspect-ratio;
+        // object-fit: cover;
         box-shadow: $boxshadow;
+
+        scale: 150%;
+        top: 25%;
+        position: relative;
+        // background-image: url("src/assets/img/2photoOfMe.png");
       }
 
       // TODO: delete later the class .img and div, leave only img html element selector
@@ -59,7 +76,7 @@
         align-items: center;
         width: $img-size;
         aspect-ratio: $aspect-ratio;
-        object-fit: cover;
+        // object-fit: cover;
         box-shadow: $boxshadow;
         overflow: hidden;
 
