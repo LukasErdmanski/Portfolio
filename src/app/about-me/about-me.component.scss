@@ -1,0 +1,94 @@
+@import "src/modules/utilities/_button";
+@import "src/modules/utilities/_vars";
+@import "src/assets/fonts/_typography";
+
+.container {
+  // TODO: delete later
+  background: antiquewhite;
+
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  padding: 110px 0;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        text-align: justify;
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  .img-container {
+    // TODO: delete later
+    background-color: lightgray;
+
+    display: flex;
+    justify-content: flex-end;
+    transition: all 225ms ease-in-out;
+
+    .img-wrapper {
+      $img-size: clamp(300px, 30vw, 500px);
+      $aspect-ratio: 1;
+      position: relative;
+
+      img {
+        width: $img-size;
+        aspect-ratio: $aspect-ratio;
+        object-fit: cover;
+        box-shadow: $boxshadow;
+      }
+
+      // TODO: delete later the class .img and div, leave only img html element selector
+      .img {
+        background-color: darkcyan;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $img-size;
+        aspect-ratio: $aspect-ratio;
+        object-fit: cover;
+        box-shadow: $boxshadow;
+        overflow: hidden;
+
+        div {
+          background-color: lightslategrey;
+          width: 800px;
+          height: 600px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      .frame {
+        $offset: 10px;
+        position: absolute;
+        top: $offset;
+        left: $offset;
+        width: $img-size;
+        aspect-ratio: $aspect-ratio;
+        border: $frame;
+        opacity: 0;
+
+        &:hover {
+          opacity: 1;
+          transition: opacity 225ms ease-in-out;
+        }
+      }
+    }
+  }
+}

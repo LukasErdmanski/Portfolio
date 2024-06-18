@@ -9,9 +9,10 @@ import {
   BrowserAnimationsModule,
   provideAnimations,
 } from '@angular/platform-browser/animations';
+import { AboutMeComponent } from './about-me/about-me.component';
 
 @NgModule({
-  declarations: [AppComponent, StartComponent, StartScreenComponent],
+  declarations: [AppComponent, StartComponent, StartScreenComponent, AboutMeComponent],
   imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule],
   providers: [provideAnimations()],
   bootstrap: [AppComponent],
