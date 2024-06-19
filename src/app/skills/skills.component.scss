@@ -1,0 +1,64 @@
+@import "src/modules/utilities/_vars";
+@import "src/assets/fonts/_typography";
+
+.container {
+  background-color: darksalmon;
+  border: 2px solid black;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 110px 0;
+
+  .wrapper {
+    background-color: cadetblue;
+    border: 2px solid blue;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1300px;
+    width: 100%;
+
+    h1 {
+      padding: 0 3vw;
+      text-align: center;
+      background-color: $background_clr;
+    }
+
+    .skill-container {
+      background-color: aqua;
+      border: 2px solid red;
+
+      $padding: clamp(60px, 8vw, 90px);
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: $padding;
+      border: $frame;
+      margin-top: calc($padding * -1);
+
+      .skill {
+        background-color: darkseagreen;
+        border: 2px solid red;
+
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+
+        img {
+          height: 75px;
+        }
+      }
+    }
+  }
+}
