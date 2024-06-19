@@ -2,9 +2,6 @@
 @import "src/assets/fonts/_typography";
 
 .container {
-  background-color: darksalmon;
-  border: 2px solid black;
-
   width: 100%;
   display: flex;
   justify-content: center;
@@ -12,9 +9,6 @@
   padding: 110px 0;
 
   .wrapper {
-    background-color: cadetblue;
-    border: 2px solid blue;
-
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -28,9 +22,6 @@
     }
 
     .skill-container {
-      background-color: aqua;
-      border: 2px solid red;
-
       $padding: clamp(60px, 8vw, 90px);
       width: 100%;
       display: flex;
@@ -43,9 +34,6 @@
       margin-top: calc($padding * -1);
 
       .skill {
-        background-color: whitesmoke;
-        border: 2px solid red;
-
         width: 150px;
         height: 150px;
         display: flex;
@@ -62,6 +50,7 @@
         }
 
         &:hover {
+          transform: scale(1.1);
           color: $secondary_clr;
           font-weight: 900;
 
