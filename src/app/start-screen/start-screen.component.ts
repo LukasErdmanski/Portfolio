@@ -52,7 +52,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class StartScreenComponent {
   // TODO: maybe outsource the method as a common one to the central shared file
-  moveToSection(section: string): void {
+  protected moveToSection(section: string): void {
     document.location = '#' + section;
   }
 }
