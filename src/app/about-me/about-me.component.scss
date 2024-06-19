@@ -3,9 +3,6 @@
 @import "src/assets/fonts/_typography";
 
 .container {
-  // TODO: delete later
-  background: antiquewhite;
-
   width: 100%;
   min-height: 80vh;
   display: flex;
@@ -45,7 +42,9 @@
 
       img {
         width: $img-size;
+        aspect-ratio: $aspect-ratio;
         object-fit: cover;
+        object-position: top;
       }
     }
 
@@ -63,6 +62,49 @@
         opacity: 1;
         transition: opacity 225ms ease-in-out;
       }
+    }
+  }
+}
+
+@media (max-width: 875px) {
+  .wrapper {
+    flex-direction: column;
+
+    button {
+      display: none;
+    }
+
+    .img-container {
+      $img-size: clamp(225px, 100%, 875px);
+
+      .img-wrapper {
+        img {
+          width: $img-size;
+          margin-bottom: 50px;
+        }
+      }
+
+      .frame {
+        width: $img-size;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .img-container {
+    $aspect-ratio: 0.8;
+
+    .img-wrapper {
+      aspect-ratio: $aspect-ratio !important;
+
+      img {
+        aspect-ratio: $aspect-ratio !important;
+      }
+    }
+
+    .frame {
+      aspect-ratio: $aspect-ratio !important;
     }
   }
 }
