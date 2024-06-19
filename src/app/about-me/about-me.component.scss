@@ -32,79 +32,36 @@
   }
 
   .img-container {
-    // TODO: delete later
-    background-color: lightgray;
-
-    display: flex;
-    justify-content: flex-end;
     transition: all 225ms ease-in-out;
+    position: relative;
+
+    $img-size: clamp(300px, 30vw, 500px);
+    $aspect-ratio: 1;
 
     .img-wrapper {
-      background-color: darkcyan;
-
-      $img-size: clamp(300px, 30vw, 500px);
-      width: $img-size;
-      height: $img-size;
-      $aspect-ratio: 1;
-      position: relative;
-
-      background-color: darkcyan;
-      width: clamp(300px, 30vw, 500px);
-      position: relative;
+      aspect-ratio: $aspect-ratio;
       overflow: hidden;
-      aspect-ratio: 1;
-
-      display: flex;
-      justify-content: center;
+      box-shadow: $boxshadow;
 
       img {
-        // aspect-ratio: $aspect-ratio;
-        // object-fit: cover;
-        box-shadow: $boxshadow;
-
-        scale: 150%;
-        top: 25%;
-        position: relative;
-        // background-image: url("src/assets/img/2photoOfMe.png");
-      }
-
-      // TODO: delete later the class .img and div, leave only img html element selector
-      .img {
-        background-color: darkcyan;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: $img-size;
-        aspect-ratio: $aspect-ratio;
-        // object-fit: cover;
-        box-shadow: $boxshadow;
-        overflow: hidden;
-
-        div {
-          background-color: lightslategrey;
-          width: 800px;
-          height: 600px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-        }
+        object-fit: cover;
       }
+    }
 
-      .frame {
-        $offset: 10px;
-        position: absolute;
-        top: $offset;
-        left: $offset;
-        width: $img-size;
-        aspect-ratio: $aspect-ratio;
-        border: $frame;
-        opacity: 0;
+    .frame {
+      $offset: 10px;
+      position: absolute;
+      top: $offset;
+      left: $offset;
+      width: $img-size;
+      aspect-ratio: $aspect-ratio;
+      border: $frame;
+      opacity: 0;
 
-        &:hover {
-          opacity: 1;
-          transition: opacity 225ms ease-in-out;
-        }
+      &:hover {
+        opacity: 1;
+        transition: opacity 225ms ease-in-out;
       }
     }
   }
