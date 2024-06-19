@@ -43,7 +43,7 @@
       margin-top: calc($padding * -1);
 
       .skill {
-        background-color: darkseagreen;
+        background-color: whitesmoke;
         border: 2px solid red;
 
         width: 150px;
@@ -54,9 +54,21 @@
         align-items: center;
         gap: 10px;
         text-align: center;
+        transition: all 225ms ease-in-out;
 
         img {
           height: 75px;
+          transition: all 225ms ease-in-out;
+        }
+
+        &:hover {
+          color: $secondary_clr;
+          font-weight: 900;
+
+          img {
+            filter: invert(54%) sepia(98%) saturate(1393%) hue-rotate(1deg)
+              brightness(105%) contrast(105%);
+          }
         }
       }
     }
