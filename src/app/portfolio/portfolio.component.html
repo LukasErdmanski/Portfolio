@@ -1,75 +1,36 @@
 <div class="container">
   <div class="header">
     <div class="header-wrapper">
-      <h1>Portfolio</h1>
+      <h1></h1>
       <span translate
         >This page is a sample of my work - please feel free to try out.</span
       >
     </div>
   </div>
-  <div class="project" [style.flexDirection]="true ? 'row' : 'row-reverse'">
-    <div class="number" [style]="true ? 'right:0' : 'left:0'">01 / 04</div>
+  <div
+    *ngFor="let project of projects; let i = index; let even = even"
+    class="project"
+    [style.flexDirection]="even ? 'row' : 'row-reverse'"
+  >
+    <div class="number" [style]="even ? 'right:0' : 'left:0'">
+      0{{ i + 1 }} / 04
+    </div>
     <div class="img-wrapper">
       <img
         class="project-img"
-        src="assets/img/portfolio-view.png"
-        alt="portfolio-view"
+        src="assets/img/{{ project.img }}"
+        alt="{{ project }} view"
       />
       <div class="frame-wrapper">
-        <div class="frame" [style]="true ? 'left: 10px' : 'right: 10px'"></div>
-        <a href="https://github.com/LukasErdmanski/Portfolio" class="anchor">
-          <div class="circle-black">
-            <img
-              src="assets/img/circle-with-arrow.svg"
-              alt="cirle with arrow"
-              class="circle-img"
-              [style]="true ? 'right:-45px ' : 'left:-45px'"
-            />
-          </div>
-        </a>
-      </div>
-    </div>
-    <div
-      class="text-container"
-      [style.alignItems]="true ? 'flex-start' : 'flex-end'"
-    >
-      <h2>Portfolio</h2>
-      <div class="techs">
-        <span>Angular | Typescript | HTML | SCSS</span>
-      </div>
-      <span class="descripition">
-        Do you like my portfolio website? Feel free to take a look behind the
-        scenes on Github.
-      </span>
-      <div class="btn-container">
-        <a
-          href="https://github.com/LukasErdmanski/Portfolio"
-          target="_blank"
-          class="btn btn-black"
-        >
-          Github
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="project" [style.flexDirection]="false ? 'row' : 'row-reverse'">
-    <div class="number" [style]="false ? 'right:0' : 'left:0'">02 / 04</div>
-    <div class="img-wrapper">
-      <img
-        class="project-img"
-        src="assets/img/portfolio-view.png"
-        alt="portfolio-view"
-      />
-      <div class="frame-wrapper">
-        <div class="frame" [style]="false ? 'left: 10px' : 'right: 10px'"></div>
-        <a href="https://github.com/LukasErdmanski/Portfolio" class="anchor">
+        <div class="frame" [style]="even ? 'left: 10px' : 'right: 10px'"></div>
+        <a href="{{ project.link }}" target="_blank" class="anchor">
           <div class="circle-black">
             <img
               src="assets/img/circle-with-arrow.svg"
               alt="cirle with arrow"
               class="circle-img"
               [style]="
-                false ? 'right:-45px' : 'left: -45px; transform: rotate(270deg)'
+                even ? 'right:-45px ' : 'left:-45px; transform: rotate(270deg)'
               "
             />
           </div>
@@ -78,22 +39,20 @@
     </div>
     <div
       class="text-container"
-      [style.alignItems]="false ? 'flex-start' : 'flex-end'"
+      [style.alignItems]="even ? 'flex-start' : 'flex-end'"
     >
-      <h2>Portfolio</h2>
+      <h2>{{ project.name }}</h2>
       <div class="techs">
-        <span>Angular | Typescript | HTML | SCSS</span>
+        <span *ngFor="let tech of project.techs; let i = index"
+          ><span *ngIf="i > 0"> | </span>{{ tech }}</span
+        >
       </div>
+      <!-- TODO: translate -->
       <span class="descripition">
-        Do you like my portfolio website? Feel free to take a look behind the
-        scenes on Github.
+        {{ project.text.en }}
       </span>
       <div class="btn-container">
-        <a
-          href="https://github.com/LukasErdmanski/Portfolio"
-          target="_blank"
-          class="btn btn-black"
-        >
+        <a href="{{ project.github }}" target="_blank" class="btn btn-black">
           Github
         </a>
       </div>

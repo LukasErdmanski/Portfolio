@@ -51,10 +51,6 @@
       font-family: $secondary_font;
       font-weight: $fw-black;
       font-size: $fs-headline2;
-
-      // TODO: change dynamicly left, right property; depands if project container is even number (right site) or not (left site)
-      right: 0px;
-      // left: 0px;
     }
 
     .anchor {
@@ -94,10 +90,6 @@
           height: 100%;
           width: 100%;
           border: $frame;
-
-          // TODO: change dynamicly left, right property; depands if project container is even number (right site) or not (left site)
-          // left: 10px;
-          // right: 10px;
         }
 
         .circle-black {
@@ -111,31 +103,19 @@
             position: absolute;
             top: calc(50% + 10px - ($size/2));
             z-index: 1;
-
-            // TODO: change dynamicly left, right property; depands if project container is even number (right site) or not (left site)
-            right: -45px;
-            // transform: rotate(270deg);
-            // left: -45px;
           }
         }
       }
     }
 
     .text-container {
-      background-color: blanchedalmond;
+      background-color: rgba(255, 235, 205, 0.3);
       border: 2px solid red;
 
       width: 50%;
       height: auto;
       display: flex;
       flex-direction: column;
-
-      align-items: flex-start;
-
-      // TODO: change dynamicly left, right property; depands if project container is even number (right site) or not (left site)
-      align-items: flex-start;
-      // align-items: end;
-
       justify-content: flex-end;
       padding-bottom: 5vh;
       gap: 15px;
