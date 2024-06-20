@@ -1,0 +1,36 @@
+@import "src/modules/utilities/_button";
+@import "src/modules/utilities/_vars";
+@import "src/assets/fonts/_typography";
+
+.container {
+  background-color: goldenrod;
+  border: 2px solid red;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 110px 0;
+  overflow: hidden;
+
+  .header {
+    background-color: slategrey;
+    border: 2px solid red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .header-wrapper {
+      background-color: palevioletred;
+      border: 2px solid blue;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        text-align: center;
+      }
+    }
+  }
+}

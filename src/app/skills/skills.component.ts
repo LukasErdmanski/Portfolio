@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './skills.component.scss',
 })
 export class SkillsComponent {
+  // TODO: add later Storybook, Jira, Azure DevOps, C#, Python, Django LOGO
   protected skillLabels: string[] = [
     'Angular',
     'Typescript',
