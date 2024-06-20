@@ -3,26 +3,28 @@
 @import "src/assets/fonts/_typography";
 
 .container {
-  background-color: ghostwhite;
-  border: 2px solid red;
+  // background-color: ghostwhite;
+  // border: 2px solid red;
 
   width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   padding: 110px 0;
   overflow: hidden;
 
   .header {
-    background-color: slategrey;
+    background-color: bisque;
     border: 2px solid red;
+
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .header-wrapper {
-      background-color: palevioletred;
-      border: 2px solid blue;
+      // background-color: palevioletred;
+      // border: 2px solid blue;
 
       display: flex;
       flex-direction: column;
@@ -35,8 +37,8 @@
   }
 
   .project {
-    background-color: lightgrey;
-    border: 4px solid blue;
+    // background-color: lightgrey;
+    // border: 4px solid blue;
 
     display: flex;
     gap: 5vw;
@@ -51,36 +53,51 @@
       font-size: $fs-headline2;
 
       // TODO: change dynamicly left, right property; depands if project container is even number (right site) or not (left site)
-      right: 10px;
-      left: 10px;
+      right: 0px;
+      // left: 0px;
+    }
+
+    .anchor {
+      height: 100%;
+      width: fit-content;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .img-wrapper {
       $imgWidth: 490px;
       height: 100%;
+      width: fit-content;
       position: relative;
+      z-index: 2;
 
       .project-img {
         width: $imgWidth;
         aspect-ratio: 4/3;
+
         // object-fit: cover;
         object-fit: fill;
+
+        box-shadow: $boxshadow;
       }
 
       .frame-wrapper {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         width: $imgWidth;
         aspect-ratio: 4 / 3;
 
         .frame {
           position: absolute;
-          top: 10%;
-          left: 10px;
+          top: 10px;
           height: 100%;
           width: 100%;
           border: $frame;
+
+          // TODO: change dynamicly left, right property; depands if project container is even number (right site) or not (left site)
+          left: 10px;
+          // right: 10px;
         }
 
         .circle-black {
@@ -97,7 +114,7 @@
 
             // TODO: change dynamicly left, right property; depands if project container is even number (right site) or not (left site)
             right: -45px;
-            right: -35px;
+            // left: -45px;
           }
         }
       }
@@ -111,10 +128,17 @@
       height: auto;
       display: flex;
       flex-direction: column;
+
       align-items: flex-start;
-      justify-content: flex-start;
-      padding-top: 5vh;
+
+      // TODO: change dynamicly left, right property; depands if project container is even number (right site) or not (left site)
+      align-items: flex-start;
+      // align-items: end;
+
+      justify-content: flex-end;
+      padding-bottom: 5vh;
       gap: 15px;
+      z-index: 1;
 
       h2 {
         font-family: $secondary_font;
