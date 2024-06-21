@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="portfolio">
   <!-- header -->
   <div class="header">
     <div class="header-wrapper">
@@ -8,6 +8,7 @@
       >
     </div>
   </div>
+
   <!-- project -->
   <div
     *ngFor="let project of projects; let i = index; let even = even"
@@ -22,7 +23,7 @@
       class="number"
       [style]="even ? 'right:0' : 'left:0'"
     >
-      0{{ i + 1 }} / 04
+      0{{ i + 1 }} / 0{{ projects.length }}
     </div>
     <div class="img-wrapper">
       <img
@@ -40,6 +41,7 @@
         <a href="{{ project.link }}" target="_blank" class="anchor">
           <div class="circle-black">
             <img
+              #arrow
               src="assets/img/circle-with-arrow.svg"
               alt="cirle with arrow"
               class="circle-img"
@@ -50,7 +52,8 @@
         </a>
       </div>
     </div>
-    <!-- fading text container from left -->
+
+    <!-- left fading text container -->
     <div
       *ngIf="even"
       class="text-container"
@@ -73,7 +76,8 @@
         </a>
       </div>
     </div>
-    <!-- fading text container from right -->
+
+    <!-- right fading text container -->
     <div
       *ngIf="!even"
       class="text-container"

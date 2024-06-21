@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {
   trigger,
   style,
@@ -126,6 +126,7 @@ export type Project = {
 })
 export class PortfolioComponent {
   protected projects: Project[] = [
+    // TODO: finally add maybe ring of fire, slack project,
     {
       name: 'Join',
       techs: ['Javascript', 'HTML', 'CSS'],
@@ -133,6 +134,7 @@ export class PortfolioComponent {
         en: 'A task manager modeled on the Kanban system. Create tasks and organize them using drag-and-drop functionality. Assign them subtasks, users and categories.',
         de: 'Ein Aufgabenmanager nach dem Vorbild des Kanban-Systems. Erstellen Sie Aufgaben und organisieren Sie diese mit Hilfe von Drag-and-Drop-Funktionen. Weisen Sie ihnen Teilaufgaben, Nutzer und Kategorien zu.',
       },
+      // TODO: finally change to valid github, link, img
       github: 'https://github.com/LukasErdmanski/Portfolio',
       link: 'https://www.google.com/',
       img: 'portfolio-view.png',
@@ -145,6 +147,7 @@ export class PortfolioComponent {
         en: 'A simple jump-n-run game based on an object-oriented approach. Can you reach the end of the level and defeat the evil end boss, eL polo loco.',
         de: 'Ein einfaches Jump-n-Run-Spiel, das auf einem objektorientierten Ansatz basiert. Schafft du das Ende vom Level zu erreichen und den bösen Endboss, el polo loco zu besiegen?',
       },
+      // TODO: finally change to valid github, link, img
       github: 'https://github.com/LukasErdmanski/Portfolio',
       link: 'https://www.google.com/',
       img: 'portfolio-view.png',
@@ -157,12 +160,14 @@ export class PortfolioComponent {
         en: 'Do you like my portfolio website? Feel free to take a look behind the scenes on Github.',
         de: 'Gefällt Ihnen meine Portfolio-Website? Werfen Sie auf Github gerne einen Blick hinter die Kulissen.',
       },
+      // TODO: finally change to valid github, link, img
       github: 'https://github.com/LukasErdmanski/Portfolio',
       link: '#',
       img: 'portfolio-view.png',
       state: 'rest',
     },
     {
+      // TODO: finally change to valid github, link, img
       name: 'Pokédex',
       techs: ['JavaScript', 'HTML', 'CSS', 'API'],
       text: {
@@ -176,8 +181,16 @@ export class PortfolioComponent {
     },
   ];
 
+  protected windowInnerWith: number = 0;
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.windowInnerWith = window.innerWidth;
+  }
+
   protected changeMouseState(state: string, i: number): void {
-    if (state === 'rest') this.projects[i].state = state;
+    if (state === 'rest' && this.windowInnerWith > 830)
+      this.projects[i].state = state;
     else this.projects[i].state = 'hover';
   }
 }
