@@ -45,7 +45,7 @@
               src="assets/img/circle-with-arrow.svg"
               alt="cirle with arrow"
               class="circle-img"
-              [style]="even ? 'right:-45px ' : 'left:-45px'"
+              [style]="positionArrow(even)"
               [@circle]="project.state"
             />
           </div>

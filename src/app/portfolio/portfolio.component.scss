@@ -3,9 +3,6 @@
 @import "src/assets/fonts/_typography";
 
 .container {
-  // background-color: ghostwhite;
-  // border: 2px solid red;
-
   width: 100%;
   display: flex;
   justify-content: center;
@@ -14,18 +11,12 @@
   overflow: hidden;
 
   .header {
-    background-color: bisque;
-    border: 2px solid red;
-
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .header-wrapper {
-      // background-color: palevioletred;
-      // border: 2px solid blue;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -37,9 +28,6 @@
   }
 
   .project {
-    // background-color: lightgrey;
-    // border: 4px solid blue;
-
     display: flex;
     gap: 5vw;
     margin: 100px 0;
@@ -93,8 +81,6 @@
         }
 
         .circle-black {
-          background-color: chartreuse;
-
           $size: 70px;
 
           .circle-img {
@@ -109,9 +95,6 @@
     }
 
     .text-container {
-      background-color: rgba(255, 235, 205, 0.3);
-      border: 2px solid red;
-
       width: 50%;
       height: auto;
       display: flex;
@@ -141,5 +124,74 @@
         text-align: justify;
       }
     }
+  }
+}
+@media screen and (max-width: 1100px) {
+  .img-wrapper {
+    $imgWidth: 400px !important;
+
+    .project-img,
+    .frame-wrapper {
+      width: $imgWidth;
+    }
+
+    .circle-black {
+      $size: 50px;
+
+      .circle-img {
+        height: $size !important;
+        width: $size !important;
+        top: calc(50% + 10px - ($size/2)) !important;
+      }
+    }
+  }
+
+  .text-container {
+    h2 {
+      font-size: $fs-headline3 !important;
+    }
+
+    .techs {
+      font-size: $fs-sm !important;
+    }
+
+    .descripition {
+      font-size: $fs-xs !important;
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .project:nth-child(2n + 1) {
+    align-self: flex-end;
+  }
+
+  .project {
+    flex-direction: column !important;
+    width: calc(100% - 35px);
+
+    .number {
+      top: unset !important;
+      bottom: 0;
+    }
+
+    .img-wrapper {
+      $imgWidth: 100% !important;
+
+      .project-img,
+      .frame-wrapper {
+        width: $imgWidth;
+      }
+    }
+
+    .text-container {
+      width: 100% !important;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .number {
+    font-size: $fs-headline1 !important;
   }
 }

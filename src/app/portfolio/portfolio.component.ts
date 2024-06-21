@@ -193,4 +193,14 @@ export class PortfolioComponent {
       this.projects[i].state = state;
     else this.projects[i].state = 'hover';
   }
+
+  protected positionArrow(even: boolean): string {
+    if (even) {
+      if (this.windowInnerWith > 1100) return 'right: -45px';
+      else return 'right: -35px';
+    } else {
+      if (this.windowInnerWith > 1100) return 'left: -45px';
+      else return 'left: -35px';
+    }
+  }
 }
