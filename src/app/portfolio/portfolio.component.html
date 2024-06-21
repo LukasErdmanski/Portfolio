@@ -29,9 +29,14 @@
         class="project-img"
         src="assets/img/{{ project.img }}"
         alt="{{ project }} view"
+        [@grayscale]="project.state"
       />
       <div class="frame-wrapper">
-        <div class="frame" [style]="even ? 'left: 10px' : 'right: 10px'"></div>
+        <div
+          class="frame"
+          [style]="even ? 'left: 10px' : 'right: 10px'"
+          [@frame]="project.state"
+        ></div>
         <a href="{{ project.link }}" target="_blank" class="anchor">
           <div class="circle-black">
             <img
@@ -39,6 +44,7 @@
               alt="cirle with arrow"
               class="circle-img"
               [style]="even ? 'right:-45px ' : 'left:-45px'"
+              [@circle]="project.state"
             />
           </div>
         </a>

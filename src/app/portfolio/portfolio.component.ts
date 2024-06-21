@@ -23,7 +23,6 @@ export type Project = {
   styleUrl: './portfolio.component.scss',
   animations: [
     trigger('colorUp', [
-      // ...
       state(
         'rest',
         style({
@@ -39,7 +38,56 @@ export type Project = {
       // The transition below uses the wildcard '*' which means any state.
       // This transition applies the animation for 1 second whenever there
       // is a change between any two states.
-      transition('* => *', [animate('1s')]),
+      transition('* => *', [animate('225ms ease-in')]),
+    ]),
+    trigger('grayscale', [
+      state(
+        'rest',
+        style({
+          filter: 'grayscale(1)',
+        })
+      ),
+      state(
+        'hover',
+        style({
+          filter: 'grayscale(0)',
+        })
+      ),
+      transition('* => *', animate('225ms ease-in')),
+    ]),
+    trigger('frame', [
+      state(
+        'rest',
+        style({
+          filter: 'opacity(0)',
+        })
+      ),
+      state(
+        'hover',
+        style({
+          filter: 'opacity(1)',
+        })
+      ),
+      transition('* => *', animate('225ms ease-in-out')),
+    ]),
+    trigger('circle', [
+      state(
+        'rest',
+        style({
+          rotate: '135deg',
+          transform: 'scale(0)',
+          filter: 'opacity(0)',
+        })
+      ),
+      state(
+        'hover',
+        style({
+          rotate: '0deg',
+          filter: 'opacity(1)',
+          opacity: 1,
+        })
+      ),
+      transition('* => *', animate('225ms ease-in-out')),
     ]),
   ],
 })
