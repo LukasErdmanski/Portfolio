@@ -35,10 +35,7 @@ export type Project = {
           color: '#ff990044',
         })
       ),
-      // The transition below uses the wildcard '*' which means any state.
-      // This transition applies the animation for 1 second whenever there
-      // is a change between any two states.
-      transition('* => *', [animate('225ms ease-in')]),
+      transition('* => *', animate('225ms ease-in')),
     ]),
     trigger('grayscale', [
       state(
@@ -76,18 +73,54 @@ export type Project = {
         style({
           rotate: '135deg',
           transform: 'scale(0)',
-          filter: 'opacity(0)',
         })
       ),
       state(
         'hover',
         style({
           rotate: '0deg',
-          filter: 'opacity(1)',
-          opacity: 1,
+          transform: 'scale(1)',
         })
       ),
-      transition('* => *', animate('225ms ease-in-out')),
+      /* two transitions to add a small dealy from 'rest' to 'hover' state when circle and text container appers */
+      transition('rest => *', animate('225ms 150ms ease-in')),
+      transition('hover => *', animate('225ms ease-in')),
+    ]),
+    trigger('text-left', [
+      state(
+        'rest',
+        style({
+          filter: 'opacity(0)',
+          transform: 'translateX(-200px)',
+        })
+      ),
+      state(
+        'hover',
+        style({
+          filter: 'opacity(1)',
+          transform: 'translateX(0px)',
+        })
+      ),
+      transition('rest => *', animate('225ms 300ms ease-in')),
+      transition('hover => *', animate('225ms ease-in')),
+    ]),
+    trigger('text-right', [
+      state(
+        'rest',
+        style({
+          filter: 'opacity(0)',
+          transform: 'translateX(200px)',
+        })
+      ),
+      state(
+        'hover',
+        style({
+          filter: 'opacity(1)',
+          transform: 'translateX(0px)',
+        })
+      ),
+      transition('rest => *', animate('225ms 300ms ease-in')),
+      transition('hover => *', animate('225ms ease-in')),
     ]),
   ],
 })

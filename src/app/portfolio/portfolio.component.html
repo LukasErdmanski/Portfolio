@@ -50,9 +50,35 @@
         </a>
       </div>
     </div>
+    <!-- fading text container from left -->
     <div
+      *ngIf="even"
       class="text-container"
       [style.alignItems]="even ? 'flex-start' : 'flex-end'"
+      [@text-left]="project.state"
+    >
+      <h2>{{ project.name }}</h2>
+      <div class="techs">
+        <span *ngFor="let tech of project.techs; let i = index"
+          ><span *ngIf="i > 0"> | </span>{{ tech }}</span
+        >
+      </div>
+      <!-- TODO: translate -->
+      <span class="descripition">
+        {{ project.text.en }}
+      </span>
+      <div class="btn-container">
+        <a href="{{ project.github }}" target="_blank" class="btn btn-black">
+          Github
+        </a>
+      </div>
+    </div>
+    <!-- fading text container from right -->
+    <div
+      *ngIf="!even"
+      class="text-container"
+      [style.alignItems]="even ? 'flex-start' : 'flex-end'"
+      [@text-right]="project.state"
     >
       <h2>{{ project.name }}</h2>
       <div class="techs">
