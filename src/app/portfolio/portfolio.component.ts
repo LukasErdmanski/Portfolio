@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import {
+  trigger,
+  style,
+  animate,
+  transition,
+  state,
+} from '@angular/animations';
 
 export type Project = {
   name: string;
@@ -7,12 +14,34 @@ export type Project = {
   github: string;
   link: string;
   img: string;
+  state: 'rest' | 'hover';
 };
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
+  animations: [
+    trigger('colorUp', [
+      // ...
+      state(
+        'rest',
+        style({
+          color: '#2d2d2d12',
+        })
+      ),
+      state(
+        'hover',
+        style({
+          color: '#ff990044',
+        })
+      ),
+      // The transition below uses the wildcard '*' which means any state.
+      // This transition applies the animation for 1 second whenever there
+      // is a change between any two states.
+      transition('* => *', [animate('1s')]),
+    ]),
+  ],
 })
 export class PortfolioComponent {
   protected projects: Project[] = [
@@ -26,6 +55,7 @@ export class PortfolioComponent {
       github: 'https://github.com/LukasErdmanski/Portfolio',
       link: 'https://www.google.com/',
       img: 'portfolio-view.png',
+      state: 'rest',
     },
     {
       name: 'El polo loco',
@@ -37,6 +67,7 @@ export class PortfolioComponent {
       github: 'https://github.com/LukasErdmanski/Portfolio',
       link: 'https://www.google.com/',
       img: 'portfolio-view.png',
+      state: 'rest',
     },
     {
       name: 'Portfolio',
@@ -48,6 +79,7 @@ export class PortfolioComponent {
       github: 'https://github.com/LukasErdmanski/Portfolio',
       link: '#',
       img: 'portfolio-view.png',
+      state: 'rest',
     },
     {
       name: 'Pokédex',
@@ -59,6 +91,12 @@ export class PortfolioComponent {
       github: 'https://github.com/LukasErdmanski/Portfolio',
       link: 'https://www.google.com/',
       img: 'portfolio-view.png',
+      state: 'rest',
     },
   ];
+
+  protected changeMouseState(state: string, i: number): void {
+    if (state === 'rest') this.projects[i].state = state;
+    else this.projects[i].state = 'hover';
+  }
 }

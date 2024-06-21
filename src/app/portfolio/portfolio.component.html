@@ -1,18 +1,27 @@
 <div class="container">
+  <!-- header -->
   <div class="header">
     <div class="header-wrapper">
-      <h1></h1>
+      <h1>Portfolio</h1>
       <span translate
         >This page is a sample of my work - please feel free to try out.</span
       >
     </div>
   </div>
+  <!-- project -->
   <div
     *ngFor="let project of projects; let i = index; let even = even"
     class="project"
     [style.flexDirection]="even ? 'row' : 'row-reverse'"
+    (mouseenter)="changeMouseState('hover', i)"
+    (mouseleave)="changeMouseState('rest', i)"
   >
-    <div class="number" [style]="even ? 'right:0' : 'left:0'">
+    <!-- triggers angular animation defined as 'colorUp' according to / after change of the project state value -->
+    <div
+      [@colorUp]="project.state"
+      class="number"
+      [style]="even ? 'right:0' : 'left:0'"
+    >
       0{{ i + 1 }} / 04
     </div>
     <div class="img-wrapper">
@@ -29,9 +38,7 @@
               src="assets/img/circle-with-arrow.svg"
               alt="cirle with arrow"
               class="circle-img"
-              [style]="
-                even ? 'right:-45px ' : 'left:-45px; transform: rotate(270deg)'
-              "
+              [style]="even ? 'right:-45px ' : 'left:-45px'"
             />
           </div>
         </a>
