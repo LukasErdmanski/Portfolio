@@ -1,0 +1,24 @@
+@import "src/modules/utilities/_button";
+@import "src/modules/utilities/_vars";
+@import "src/assets/fonts/_typography";
+
+.container {
+  position: relative;
+  width: 100%;
+  padding: $padding-side;
+  padding-top: 110px;
+
+  /* bow */
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    bottom: -1px;
+    background-color: $primary_clr;
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
+  }
+
+  .header {
+    padding-top: 10vh;
+  }
+}

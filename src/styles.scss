@@ -51,3 +51,12 @@ h1 {
     text-shadow: $ts-offset calc($ts-offset/2) $secondary_clr;
   }
 }
+
+.white {
+  color: $background_clr;
+
+  &:hover {
+    color: $background_clr;
+    text-shadow: $ts-offset calc($ts-offset/2) $secondary_clr;
+  }
+}

@@ -12,9 +12,10 @@ import {
 import { AboutMeComponent } from './about-me/about-me.component';
 import { SkillsComponent } from './skills/skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
-  declarations: [AppComponent, StartComponent, StartScreenComponent, AboutMeComponent, SkillsComponent, PortfolioComponent],
+  declarations: [AppComponent, StartComponent, StartScreenComponent, AboutMeComponent, SkillsComponent, PortfolioComponent, ContactComponent],
   imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule],
   providers: [provideAnimations()],
   bootstrap: [AppComponent],
