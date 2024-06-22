@@ -21,4 +21,30 @@
   .header {
     padding-top: 10vh;
   }
+
+  .contact-container {
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+
+    h2 {
+      font-size: $fs-headline3;
+      color: $secondary_clr;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+
+      input {
+        font-size: $fs-regular;
+      }
+    }
+  }
 }
