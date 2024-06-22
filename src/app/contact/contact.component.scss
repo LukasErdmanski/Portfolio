@@ -108,3 +108,18 @@
     }
   }
 }
+
+@media (max-width: 630px) {
+  .arrow-up {
+    display: none !important;
+  }
+
+  .contact-container {
+    align-items: none;
+
+    h2,
+    span {
+      text-align: center;
+    }
+  }
+}

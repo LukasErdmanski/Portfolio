@@ -6,4 +6,7 @@ section {
   padding: $padding-side;
 }
 
-//TODO: Add padding zero to section last child later
+// last section: contact component has no padding to expand totally background and width
+section:last-child {
+  padding: 0;
+}
