@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { scrollToSection } from '../utils/scrollToSection.function';
 
 @Component({
   selector: 'app-about-me',
@@ -6,8 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './about-me.component.scss',
 })
 export class AboutMeComponent {
-  // TODO: maybe outsource the method as a common one to the central shared file
-  protected moveToSection(section: string): void {
-    document.location = '#' + section;
-  }
+  protected scrollToSection: Function = scrollToSection;
 }

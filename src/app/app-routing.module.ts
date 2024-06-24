@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { StartComponent } from './start/start.component';
+import { AppComponent } from './app.component';
 
-const routes: Routes = [
-  { path: '', pathMatch: 'full', component: StartComponent },
+export const routes: Routes = [
+  { path: '', redirectTo: 'start-screen', pathMatch: 'full' },
+  { path: ':sectionId', component: StartComponent },
 ];
 
 @NgModule({

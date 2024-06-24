@@ -1,15 +1,33 @@
-<section>
-  <app-start-screen></app-start-screen>
-</section>
-<section>
-  <app-about-me></app-about-me>
-</section>
-<section>
-  <app-skills></app-skills>
-</section>
-<section>
-  <app-portfolio></app-portfolio>
-</section>
-<section>
-  <app-contact></app-contact>
-</section>
+<div class="navBar2">
+  <h2>NAVIGATION BAR 2</h2>
+  <h3>Current Section : [{{ currentSection }}]</h3>
+  <h4>Menu</h4>
+
+  <div *ngFor="let navLink of sectionsIds" (click)="scrollToSection(navLink)">
+    {{ navLink }}
+    <ng-container *ngIf="currentSection === navLink">O</ng-container>
+  </div>
+</div>
+
+<div
+  class="sections-container"
+  scrollSpy
+  [spiedTags]="['SECTION']"
+  (sectionChange)="onSectionChange($event)"
+>
+  <section id="start-screen">
+    <app-start-screen></app-start-screen>
+  </section>
+  <section id="about-me">
+    <app-about-me></app-about-me>
+  </section>
+  <section id="skills">
+    <app-skills></app-skills>
+  </section>
+  <section id="portfolio">
+    <app-portfolio></app-portfolio>
+  </section>
+  <section id="contact">
+    <app-contact></app-contact>
+  </section>
+</div>

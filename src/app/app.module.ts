@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartComponent } from './start/start.component';
@@ -13,9 +12,19 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { SkillsComponent } from './skills/skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
+import { ScrollSpyDirective } from './utils/scroll-spy.directive';
 
 @NgModule({
-  declarations: [AppComponent, StartComponent, StartScreenComponent, AboutMeComponent, SkillsComponent, PortfolioComponent, ContactComponent],
+  declarations: [
+    AppComponent,
+    StartComponent,
+    StartScreenComponent,
+    AboutMeComponent,
+    SkillsComponent,
+    PortfolioComponent,
+    ContactComponent,
+    ScrollSpyDirective,
+  ],
   imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule],
   providers: [provideAnimations()],
   bootstrap: [AppComponent],

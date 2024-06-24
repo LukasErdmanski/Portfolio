@@ -1,5 +1,17 @@
 @import "src/modules/utilities/_vars";
 
+// TODO: Check later if is required for scroll spy or to delete.
+.navBar2 {
+  position: fixed;
+  background-color: darkgray;
+  z-index: 1;
+}
+
+// TODO: Check later if is required for scroll spy or to delete.
+.sections-container {
+  display: inline;
+}
+
 section {
   min-height: 100%;
   width: 100%;
