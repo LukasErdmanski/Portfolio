@@ -14,20 +14,27 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { ScrollSpyDirective } from './utils/scroll-spy.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StartComponent,
     StartScreenComponent,
     AboutMeComponent,
     SkillsComponent,
     PortfolioComponent,
     ContactComponent,
-    ScrollSpyDirective,
     ContactFormComponent,
+    StartComponent,
+    ScrollSpyDirective,
   ],
-  imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [provideAnimations()],
   bootstrap: [AppComponent],
 })

@@ -1,16 +1,16 @@
-<form class="contactForm">
+<form class="contactForm" [formGroup]="contactForm">
   <div class="inputBox">
-    <input type="text" name="name" />
+    <input type="text" name="name" formControlName="name" />
     <!-- TODO: trasnlate -->
     <span>Your name</span>
   </div>
   <div class="inputBox">
-    <input type="email" name="email" />
+    <input type="email" name="email" formControlName="email" />
     <!-- TODO: trasnlate -->
     <span>Your email</span>
   </div>
   <div class="inputBox">
-    <textarea type="text" name="message"></textarea>
+    <textarea type="text" name="message" formControlName="message"></textarea>
     <!-- TODO: trasnlate -->
     <span>Your message</span>
   </div>
