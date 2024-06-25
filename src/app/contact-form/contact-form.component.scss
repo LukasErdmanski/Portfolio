@@ -18,9 +18,10 @@
   .inputBox {
     background-color: cadetblue;
     border: 2px solid red;
+
+    $transitionTime: 150ms;
     position: relative;
     width: 100%;
-
     textarea {
       resize: vertical;
       max-height: 300px;
@@ -37,6 +38,44 @@
       color: $background_clr;
       outline: none;
       font-size: $fs-md;
+      transition: $transitionTime;
+
+      &:hover {
+        border: 2px solid $background_clr;
+      }
+
+      &:focus {
+        ~ span {
+          transform: translateX(10px) translateY(-10px);
+          font-size: $fs-sm;
+          font-weight: $fw-600;
+          padding: 0 10px;
+          background-color: $primary_clr;
+          letter-spacing: 5px;
+          color: $background_clr;
+        }
+        color: $background_clr;
+      }
     }
+
+    span {
+      position: absolute;
+      left: 0;
+      padding: 10px 30px;
+      font-size: $fs-regular;
+      color: $background_clr;
+      pointer-events: none;
+      transition: $transitionTime;
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  :host {
+    width: 100%;
+  }
+
+  .contactForm {
+    width: 100%;
   }
 }
