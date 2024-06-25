@@ -1,0 +1,42 @@
+@import "src/modules/utilities/_button";
+@import "src/modules/utilities/_vars";
+@import "src/assets/fonts/_typography";
+
+.contactForm {
+  background-color: lightgray;
+  border: 2px solid blue;
+
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  font-weight: $fw-300;
+  margin: 20px 0;
+
+  .inputBox {
+    background-color: cadetblue;
+    border: 2px solid red;
+    position: relative;
+    width: 100%;
+
+    textarea {
+      resize: vertical;
+      max-height: 300px;
+      min-height: 200px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid transparent;
+      border-bottom: 2px solid $background_clr;
+      background-color: $primary_clr;
+      color: $background_clr;
+      outline: none;
+      font-size: $fs-md;
+    }
+  }
+}

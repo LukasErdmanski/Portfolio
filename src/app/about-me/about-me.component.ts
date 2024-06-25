@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { scrollToSection } from '../utils/scrollToSection.function';
+import { scrollSectionToTop } from '../utils/scrollSectionToTop.function';
 
 @Component({
   selector: 'app-about-me',
@@ -7,5 +7,5 @@ import { scrollToSection } from '../utils/scrollToSection.function';
   styleUrl: './about-me.component.scss',
 })
 export class AboutMeComponent {
-  protected scrollToSection: Function = scrollToSection;
+  protected scrollSectionToTop: Function = scrollSectionToTop;
 }

@@ -9,16 +9,9 @@
     <!-- TODO: translate -->
     <span>Let's meet up and make your ideas happen</span>
 
-    <div>
-      <div>
-        <input type="text" placeholder="Your name" />
-        <input type="email" placeholder="Your email" />
-        <input type="text" placeholder="Your message" />
-      </div>
-      <button class="btn btn-black">Send</button>
-    </div>
+    <app-contact-form></app-contact-form>
 
-    <div class="arrow-up" (click)="scrollToSection('start-screen')">
+    <div class="arrow-up" (click)="scrollSectionToTop('start-screen')">
       <span class="arrow"></span>
     </div>
   </div>

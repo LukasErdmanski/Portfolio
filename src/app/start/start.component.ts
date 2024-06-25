@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { scrollToSection } from '../utils/scrollToSection.function';
+import { scrollSectionToTop } from '../utils/scrollSectionToTop.function';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 @Component({
@@ -28,7 +28,7 @@ export class StartComponent implements OnInit {
   private subscribeScrollToRouteSectionIdOnInit(): void {
     this.routeSectionIdSubscription = this.route.params.subscribe((params) => {
       this.currentSection = params['sectionId'];
-      this.scrollToSection(this.currentSection);
+      this.scrollSectionToTop(this.currentSection);
     });
   }
 
@@ -36,7 +36,7 @@ export class StartComponent implements OnInit {
     this.routeSectionIdSubscription.unsubscribe();
   }
 
-  protected scrollToSection = scrollToSection;
+  protected scrollSectionToTop = scrollSectionToTop;
 
   protected onSectionChange(sectionId: string): void {
     this.location.go(sectionId);

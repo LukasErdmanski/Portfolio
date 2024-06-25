@@ -43,4 +43,14 @@
   }
 }
 
-// TODO: define btn-white class / other type of btn in project
+.btn-white {
+  border: 4px solid $background_clr;
+  background-color: $primary_clr;
+  color: $background_clr;
+
+  &:focus,
+  &:hover {
+    background-color: $background_clr;
+    color: $primary_clr;
+  }
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
-import { scrollToSection } from '../utils/scrollToSection.function';
+import { scrollSectionToTop } from '../utils/scrollSectionToTop.function';
 
 @Component({
   selector: 'app-start-screen',
@@ -52,5 +52,5 @@ import { scrollToSection } from '../utils/scrollToSection.function';
   ],
 })
 export class StartScreenComponent {
-  protected scrollToSection = scrollToSection;
+  protected scrollSectionToTop = scrollSectionToTop;
 }

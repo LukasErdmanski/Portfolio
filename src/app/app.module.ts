@@ -13,6 +13,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { ScrollSpyDirective } from './utils/scroll-spy.directive';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ScrollSpyDirective } from './utils/scroll-spy.directive';
     PortfolioComponent,
     ContactComponent,
     ScrollSpyDirective,
+    ContactFormComponent,
   ],
   imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule],
   providers: [provideAnimations()],

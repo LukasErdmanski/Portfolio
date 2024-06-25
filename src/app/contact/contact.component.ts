@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { scrollToSection } from '../utils/scrollToSection.function';
+import { scrollSectionToTop } from '../utils/scrollSectionToTop.function';
 
 @Component({
   selector: 'app-contact',
@@ -7,5 +7,5 @@ import { scrollToSection } from '../utils/scrollToSection.function';
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-  protected scrollToSection: Function = scrollToSection;
+  protected scrollSectionToTop: Function = scrollSectionToTop;
 }

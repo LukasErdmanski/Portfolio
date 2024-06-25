@@ -1,13 +1,16 @@
-<div class="navBar2">
-  <h2>NAVIGATION BAR 2</h2>
+<!-- <div class="navBar2">
+  <h2>NAVIGATION BAR VER 2: IN START COMPONENT</h2>
   <h3>Current Section : [{{ currentSection }}]</h3>
   <h4>Menu</h4>
 
-  <div *ngFor="let navLink of sectionsIds" (click)="scrollToSection(navLink)">
+  <div
+    *ngFor="let navLink of sectionsIds"
+    (click)="scrollSectionToTop(navLink)"
+  >
     {{ navLink }}
     <ng-container *ngIf="currentSection === navLink">O</ng-container>
   </div>
-</div>
+</div> -->
 
 <div
   class="sections-container"
@@ -15,7 +18,8 @@
   [spiedTags]="['SECTION']"
   (sectionChange)="onSectionChange($event)"
 >
-  <section id="start-screen">
+
+  <!-- <section id="start-screen">
     <app-start-screen></app-start-screen>
   </section>
   <section id="about-me">
@@ -26,7 +30,8 @@
   </section>
   <section id="portfolio">
     <app-portfolio></app-portfolio>
-  </section>
+  </section> -->
+  
   <section id="contact">
     <app-contact></app-contact>
   </section>

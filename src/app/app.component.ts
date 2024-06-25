@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { scrollToSection } from './utils/scrollToSection.function';
+import { scrollSectionToTop } from './utils/scrollSectionToTop.function';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -13,5 +13,5 @@ export class AppComponent {
 
   protected sectionsIds: string[] = ['about-me', 'skills', 'portfolio'];
 
-  protected scrollToSection = scrollToSection;
+  protected scrollSectionToTop = scrollSectionToTop;
 }
