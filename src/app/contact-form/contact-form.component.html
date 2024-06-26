@@ -1,19 +1,55 @@
 <form class="contactForm" [formGroup]="contactForm">
+  <!-- NAME -->
   <div class="inputBox">
     <input type="text" name="name" formControlName="name" />
     <!-- TODO: trasnlate -->
     <span>Your name</span>
+    <ng-container
+      *ngIf="
+        contactForm.controls['name'].dirty ||
+        contactForm.controls['name'].touched
+      "
+    >
+      <div *ngIf="contactForm.controls['name'].errors?.['required']">
+        <!-- TODO: translate -->
+        <p class="error">Please enter your name.</p>
+      </div>
+    </ng-container>
   </div>
+
+  <!-- E-MAIL -->
   <div class="inputBox">
-    <input type="email" name="email" formControlName="email" />
+    <input
+      type="email"
+      name="email"
+      formControlName="email"
+      [class.invalid-filled-input]="
+        contactForm.controls['email'].value.lenght > 0 &&
+        !contactForm.controls['email'].valid
+      "
+    />
     <!-- TODO: trasnlate -->
     <span>Your email</span>
+    <ng-container
+      *ngIf="
+        contactForm.controls['email'].dirty ||
+        contactForm.controls['email'].touched
+      "
+    >
+      <div *ngIf="contactForm.controls['email'].errors">
+        <!-- TODO: translate -->
+        <p class="error">Please enter your e-mail address.</p>
+      </div>
+    </ng-container>
   </div>
+
+  <!-- MESSAGE -->
   <div class="inputBox">
     <textarea type="text" name="message" formControlName="message"></textarea>
     <!-- TODO: trasnlate -->
     <span>Your message</span>
   </div>
+
   <!-- TODO: translate -->
   <button class="btn btn-white">Send</button>
 </form>

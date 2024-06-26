@@ -27,7 +27,6 @@
       max-height: 300px;
       min-height: 200px;
     }
-
     input,
     textarea {
       width: 100%;
@@ -54,7 +53,53 @@
           letter-spacing: 5px;
           color: $background_clr;
         }
-        color: $background_clr;
+        &.ng-valid {
+          border: 2px solid $background_clr;
+        }
+
+        &.ng-invalid {
+          border: 2px solid $red;
+          color: $red;
+
+          ~ span {
+            color: $red;
+          }
+        }
+      }
+
+      &.ng-touched,
+      &.ng-dirty {
+        &.ng-valid {
+          border-bottom: 2px solid $background_clr;
+          color: $background_clr;
+
+          ~ span {
+            color: $background_clr;
+            transform: translateX(10px) translateY(-10px);
+            font-size: $fs-sm;
+            font-weight: $fw-600;
+            padding: 0 10px;
+            background-color: $primary_clr;
+            letter-spacing: 5px;
+          }
+
+          &:hover {
+            border: 2px solid $background_clr;
+          }
+        }
+
+        &.ng-invalid {
+          border-bottom: 2px solid $red;
+          color: $red;
+
+          ~ span {
+            color: $red;
+          }
+
+          &:hover {
+            border: 2px solid $red;
+          }
+        }
       }
     }
 
@@ -67,6 +112,26 @@
       pointer-events: none;
       transition: $transitionTime;
     }
+  }
+
+  .error {
+    color: $red;
+    font-size: $fs-xxs;
+    margin-top: 5px;
+  }
+}
+
+.invalid-filled-input {
+  border: 2px solid $red !important;
+
+  ~ span {
+    color: $background_clr;
+    transform: translateX(10px) translateY(-10px) !important;
+    font-size: $fs-sm !important;
+    font-weight: $fw-600;
+    padding: 0 10px !important;
+    background-color: $primary_clr;
+    letter-spacing: 5px;
   }
 }
 
