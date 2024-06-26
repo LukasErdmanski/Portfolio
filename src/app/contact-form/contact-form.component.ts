@@ -7,11 +7,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './contact-form.component.scss',
 })
 export class ContactFormComponent {
-  @ViewChild('contact') contactForm!: HTMLFormElement;
-  @ViewChild('name') nameForm!: HTMLInputElement;
-  @ViewChild('email') emailForm!: HTMLInputElement;
-  @ViewChild('message') messageForm!: HTMLTextAreaElement;
-  @ViewChild('button') btnForm!: HTMLButtonElement;
+  @ViewChild('contactForm') contactForm!: HTMLFormElement;
+  @ViewChild('formName') formName!: HTMLInputElement;
+  @ViewChild('formEmail') formEmail!: HTMLInputElement;
+  @ViewChild('formMessage') formMessage!: HTMLTextAreaElement;
+  @ViewChild('formButton') formBtn!: HTMLButtonElement;
 
   public contactFormGroup!: FormGroup;
 

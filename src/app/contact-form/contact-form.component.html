@@ -1,7 +1,7 @@
-<form #contact class="contactForm" [formGroup]="contactFormGroup">
+<form #contactForm class="contactForm" [formGroup]="contactFormGroup">
   <!-- NAME -->
   <div class="inputBox">
-    <input #name type="text" name="name" formControlName="name" />
+    <input #formName type="text" name="name" formControlName="name" />
     <!-- TODO: trasnlate -->
     <span>Your name</span>
     <ng-container
@@ -20,12 +20,12 @@
   <!-- E-MAIL -->
   <div class="inputBox">
     <input
-      #email
+      #formEmail
       type="email"
       name="email"
       formControlName="email"
       [class.invalid-filled-input]="
-        email.value.length > 0 && !contactFormGroup.controls['email'].valid
+        formEmail.value.length > 0 && !contactFormGroup.controls['email'].valid
       "
     />
     <!-- TODO: trasnlate -->
@@ -46,7 +46,7 @@
   <!-- MESSAGE -->
   <div class="inputBox">
     <textarea
-      #message
+      #formMessage
       type="text"
       name="message"
       formControlName="message"
@@ -67,5 +67,17 @@
   </div>
 
   <!-- TODO: translate -->
-  <button #button class="btn btn-white">Send</button>
+  <button
+    #formButton
+    type="submit"
+    class="btn btn-white"
+    [disabled]="
+      !(
+        contactFormGroup.valid &&
+        (contactFormGroup.dirty || contactFormGroup.touched)
+      )
+    "
+  >
+    Send
+  </button>
 </form>
