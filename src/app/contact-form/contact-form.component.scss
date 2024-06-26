@@ -3,9 +3,6 @@
 @import "src/assets/fonts/_typography";
 
 .contactForm {
-  background-color: lightgray;
-  border: 2px solid blue;
-
   width: 50vw;
   display: flex;
   flex-direction: column;
@@ -16,9 +13,6 @@
   margin: 20px 0;
 
   .inputBox {
-    background-color: cadetblue;
-    border: 2px solid red;
-
     $transitionTime: 150ms;
     position: relative;
     width: 100%;

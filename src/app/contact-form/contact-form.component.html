@@ -1,16 +1,16 @@
-<form class="contactForm" [formGroup]="contactForm">
+<form #contact class="contactForm" [formGroup]="contactFormGroup">
   <!-- NAME -->
   <div class="inputBox">
-    <input type="text" name="name" formControlName="name" />
+    <input #name type="text" name="name" formControlName="name" />
     <!-- TODO: trasnlate -->
     <span>Your name</span>
     <ng-container
       *ngIf="
-        contactForm.controls['name'].dirty ||
-        contactForm.controls['name'].touched
+        contactFormGroup.controls['name'].dirty ||
+        contactFormGroup.controls['name'].touched
       "
     >
-      <div *ngIf="contactForm.controls['name'].errors?.['required']">
+      <div *ngIf="contactFormGroup.controls['name'].errors?.['required']">
         <!-- TODO: translate -->
         <p class="error">Please enter your name.</p>
       </div>
@@ -20,23 +20,23 @@
   <!-- E-MAIL -->
   <div class="inputBox">
     <input
+      #email
       type="email"
       name="email"
       formControlName="email"
       [class.invalid-filled-input]="
-        contactForm.controls['email'].value.lenght > 0 &&
-        !contactForm.controls['email'].valid
+        email.value.length > 0 && !contactFormGroup.controls['email'].valid
       "
     />
     <!-- TODO: trasnlate -->
     <span>Your email</span>
     <ng-container
       *ngIf="
-        contactForm.controls['email'].dirty ||
-        contactForm.controls['email'].touched
+        contactFormGroup.controls['email'].dirty ||
+        contactFormGroup.controls['email'].touched
       "
     >
-      <div *ngIf="contactForm.controls['email'].errors">
+      <div *ngIf="contactFormGroup.controls['email'].errors">
         <!-- TODO: translate -->
         <p class="error">Please enter your e-mail address.</p>
       </div>
@@ -45,11 +45,27 @@
 
   <!-- MESSAGE -->
   <div class="inputBox">
-    <textarea type="text" name="message" formControlName="message"></textarea>
+    <textarea
+      #message
+      type="text"
+      name="message"
+      formControlName="message"
+    ></textarea>
     <!-- TODO: trasnlate -->
     <span>Your message</span>
+    <ng-container
+      *ngIf="
+        contactFormGroup.controls['message'].dirty ||
+        contactFormGroup.controls['message'].touched
+      "
+    >
+      <div *ngIf="contactFormGroup.controls['message'].errors?.['required']">
+        <!-- TODO: translate -->
+        <p class="error">Please enter your message.</p>
+      </div>
+    </ng-container>
   </div>
 
   <!-- TODO: translate -->
-  <button class="btn btn-white">Send</button>
+  <button #button class="btn btn-white">Send</button>
 </form>
