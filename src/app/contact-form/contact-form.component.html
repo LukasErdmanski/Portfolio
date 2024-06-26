@@ -1,4 +1,9 @@
-<form #contactForm class="contactForm" [formGroup]="contactFormGroup">
+<form
+  #contactForm
+  class="contactForm"
+  [formGroup]="contactFormGroup"
+  (submit)="sendEmail()"
+>
   <!-- NAME -->
   <div class="inputBox">
     <input #formName type="text" name="name" formControlName="name" />
@@ -28,6 +33,7 @@
         formEmail.value.length > 0 && !contactFormGroup.controls['email'].valid
       "
     />
+    <!-- TODO: check condition, then sometimes while writing the input will be red or white, not constand, maybe only the !contactFormGroup.controls['email'].valid condition, not the previous checking of the lenght of value  -->
     <!-- TODO: trasnlate -->
     <span>Your email</span>
     <ng-container

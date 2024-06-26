@@ -1,3 +1,4 @@
+/* contact-form.component.scss */
 @import "src/modules/utilities/_button";
 @import "src/modules/utilities/_vars";
 @import "src/assets/fonts/_typography";
@@ -22,15 +23,16 @@
       min-height: 200px;
     }
     input,
-    textarea {
+    textarea,
+    select {
       width: 100%;
       padding: 10px;
       border: 2px solid transparent;
       border-bottom: 2px solid $background_clr;
-      background-color: $primary_clr;
-      color: $background_clr;
+      background-color: $primary_clr !important;
+      color: $background_clr !important;
       outline: none;
-      font-size: $fs-md;
+      font-size: $fs-md !important;
       transition: $transitionTime;
 
       &:hover {
@@ -58,6 +60,27 @@
           ~ span {
             color: $red;
           }
+        }
+      }
+
+      /* Autofill styles for both Webkit and other browsers */
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus {
+        background-color: $primary_clr !important;
+        -webkit-box-shadow: 0 0 0 1000px $primary_clr inset !important;
+        box-shadow: 0 0 0 1000px $primary_clr inset !important;
+
+        &.ng-valid {
+          border: 2px solid $background_clr;
+          color: $background_clr !important;
+          -webkit-text-fill-color: $background_clr !important;
+        }
+
+        &.ng-invalid {
+          border: 2px solid $red;
+          color: $red !important;
+          -webkit-text-fill-color: $red !important;
         }
       }
 
@@ -106,26 +129,73 @@
       pointer-events: none;
       transition: $transitionTime;
     }
+
+    .invalid-filled-input {
+      color: $red !important;
+
+      ~ span {
+        color: $red !important;
+        transform: translateX(10px) translateY(-10px) !important;
+        font-size: $fs-sm !important;
+        font-weight: $fw-600;
+        padding: 0 10px !important;
+        background-color: $primary_clr !important;
+        letter-spacing: 5px;
+      }
+    }
+
+    .error {
+      color: $red !important;
+      font-size: $fs-xxs;
+      margin-top: 5px;
+    }
+  }
+}
+/* Autofill styles for both Webkit and other browsers */
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+textarea:autofill,
+textarea:autofill:hover,
+textarea:autofill:focus,
+select:autofill,
+select:autofill:hover,
+select:autofill:focus {
+  background-color: $primary_clr !important;
+  -webkit-box-shadow: 0 0 0 1000px $primary_clr inset !important;
+  box-shadow: 0 0 0 1000px $primary_clr inset !important;
+
+  &.ng-valid {
+    border: 2px solid $background_clr;
+    color: $background_clr !important;
+    -webkit-text-fill-color: $background_clr !important;
   }
 
-  .error {
-    color: $red;
-    font-size: $fs-xxs;
-    margin-top: 5px;
+  &.ng-invalid {
+    border: 2px solid $red;
+    color: $red !important;
+    -webkit-text-fill-color: $red !important;
   }
 }
 
-.invalid-filled-input {
-  border: 2px solid $red !important;
+/* Autofill styles for both Webkit and other browsers */
+input:-internal-autofill-selected,
+textarea:-internal-autofill-selected,
+select:-internal-autofill-selected {
+  background-color: $primary_clr !important;
+  -webkit-box-shadow: 0 0 0 1000px $primary_clr inset !important;
+  box-shadow: 0 0 0 1000px $primary_clr inset !important;
 
-  ~ span {
-    color: $background_clr;
-    transform: translateX(10px) translateY(-10px) !important;
-    font-size: $fs-sm !important;
-    font-weight: $fw-600;
-    padding: 0 10px !important;
-    background-color: $primary_clr;
-    letter-spacing: 5px;
+  &.ng-valid {
+    border: 2px solid $background_clr;
+    color: $background_clr !important;
+    -webkit-text-fill-color: $background_clr !important;
+  }
+
+  &.ng-invalid {
+    border: 2px solid $red;
+    color: $red !important;
+    -webkit-text-fill-color: $red !important;
   }
 }
 

@@ -8,10 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactFormComponent {
   @ViewChild('contactForm') contactForm!: HTMLFormElement;
-  @ViewChild('formName') formName!: HTMLInputElement;
-  @ViewChild('formEmail') formEmail!: HTMLInputElement;
-  @ViewChild('formMessage') formMessage!: HTMLTextAreaElement;
-  @ViewChild('formButton') formBtn!: HTMLButtonElement;
+  @ViewChild('formName') formName!: ElementRef;
+  @ViewChild('formEmail') formEmail!: ElementRef;
+  @ViewChild('formMessage') formMessage!: ElementRef;
+  @ViewChild('formButton') formBtn!: ElementRef;
 
   public contactFormGroup!: FormGroup;
 
@@ -25,5 +25,23 @@ export class ContactFormComponent {
       email: ['', [Validators.required, Validators.email], []],
       message: ['', [Validators.required], []],
     });
+  }
+
+  protected async sendEmail(): Promise<void> {
+    this.setContactFormElementsDisabled(true);
+    return new Promise<void>((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+        console.log('Email has beed successfully send.');
+        this.setContactFormElementsDisabled(false);
+      }, 10000);
+    });
+  }
+
+  private setContactFormElementsDisabled(value: boolean) {
+    this.formName.nativeElement.disabled = value;
+    this.formEmail.nativeElement.disabled = value;
+    this.formMessage.nativeElement.disabled = value;
+    this.formBtn.nativeElement.disabled = value;
   }
 }
