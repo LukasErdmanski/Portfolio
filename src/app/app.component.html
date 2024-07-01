@@ -4,7 +4,10 @@
     <!-- <h3>Current Section : [{{ currentSection }}]</h3> -->
     <h4>Menu</h4>
 
-    <div *ngFor="let navLink of sectionsIds" (click)="scrollSectionToTop(navLink)">
+    <div
+      *ngFor="let navLink of sectionsIds"
+      (click)="scrollSectionToTop(navLink)"
+    >
       {{ navLink }}
     </div>
   </div>
@@ -12,4 +15,7 @@
 
 <router-outlet></router-outlet>
 
-<!-- <footer class="nav">FOOTER BAR</footer> -->
+<!-- <footer class="nav"> -->
+<footer>
+  <app-footer></app-footer>
+</footer>

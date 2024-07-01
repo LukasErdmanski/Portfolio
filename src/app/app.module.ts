@@ -15,6 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ScrollSpyDirective } from './utils/scroll-spy.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactFormComponent,
     StartComponent,
     ScrollSpyDirective,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

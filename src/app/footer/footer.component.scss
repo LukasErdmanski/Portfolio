@@ -1,0 +1,77 @@
+@import "src/modules/utilities/_vars";
+@import "src/assets/fonts/_typography";
+
+:host {
+  display: block;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $primary_clr;
+  color: $background_clr;
+  padding-top: 15px;
+
+  .left-side {
+    background-color: cadetblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+
+    div {
+      background-color: lightgrey;
+
+      display: flex;
+      gap: 10px;
+      pointer-events: none;
+    }
+  }
+
+  .right-side {
+    background-color: chocolate;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+
+    // TODO: delete later after implemented socials component
+    .socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    .legalNotice {
+      background-color: darkseagreen;
+
+      font-size: $fs-sm;
+      font-weight: $fw-300;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        color: $background_clr;
+      }
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .container {
+    flex-direction: column-reverse;
+    padding-top: 50px;
+    justify-content: center;
+    gap: 20px;
+
+    .left-side,
+    .right-side {
+      align-items: center;
+      width: 100%;
+    }
+  }
+}
