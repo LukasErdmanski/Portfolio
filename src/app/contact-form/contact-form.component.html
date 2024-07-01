@@ -6,9 +6,19 @@
 >
   <!-- NAME -->
   <div class="inputBox">
-    <input #formName type="text" name="name" formControlName="name" />
+    <input
+      #formName
+      type="text"
+      name="name"
+      spellcheck="false"
+      [class.invalid-filled-input]="
+        formName.value.length > 0 && !contactFormGroup.controls['name'].valid
+      "
+      formControlName="name"
+      [class.disabledHover]="isFormDisabled"
+    />
     <!-- TODO: trasnlate -->
-    <span>Your name</span>
+    <span [class.disabledHover]="isFormDisabled">Your name</span>
     <ng-container
       *ngIf="
         contactFormGroup.controls['name'].dirty ||
@@ -17,25 +27,30 @@
     >
       <div *ngIf="contactFormGroup.controls['name'].errors?.['required']">
         <!-- TODO: translate -->
-        <p class="error">Please enter your name.</p>
+        <p class="error" [class.disabledHover]="isFormDisabled">
+          The name is not valid. Please enter your name, at least one character
+          long.
+        </p>
       </div>
     </ng-container>
   </div>
 
   <!-- E-MAIL -->
-  <div class="inputBox">
+  <div class="inputBox" [class.disabled-overlay]="isFormDisabled">
     <input
       #formEmail
       type="email"
       name="email"
+      spellcheck="false"
       formControlName="email"
       [class.invalid-filled-input]="
         formEmail.value.length > 0 && !contactFormGroup.controls['email'].valid
       "
+      [class.disabledHover]="isFormDisabled"
+      [class.disabled-overlay]="isFormDisabled"
     />
-    <!-- TODO: check condition, then sometimes while writing the input will be red or white, not constand, maybe only the !contactFormGroup.controls['email'].valid condition, not the previous checking of the lenght of value  -->
     <!-- TODO: trasnlate -->
-    <span>Your email</span>
+    <span [class.disabledHover]="isFormDisabled">Your email</span>
     <ng-container
       *ngIf="
         contactFormGroup.controls['email'].dirty ||
@@ -44,21 +59,30 @@
     >
       <div *ngIf="contactFormGroup.controls['email'].errors">
         <!-- TODO: translate -->
-        <p class="error">Please enter your e-mail address.</p>
+        <p class="error">
+          The e-mail address is not valid. Please enter your valid e-mail
+          address.
+        </p>
       </div>
     </ng-container>
   </div>
 
   <!-- MESSAGE -->
-  <div class="inputBox">
+  <div class="inputBox inputBox-with-textarea">
     <textarea
       #formMessage
       type="text"
       name="message"
+      spellcheck="false"
       formControlName="message"
+      [class.invalid-filled-input]="
+        formMessage.value.length > 0 &&
+        !contactFormGroup.controls['message'].valid
+      "
+      [class.disabledHover]="isFormDisabled"
     ></textarea>
     <!-- TODO: trasnlate -->
-    <span>Your message</span>
+    <span [class.disabledHover]="isFormDisabled">Your message</span>
     <ng-container
       *ngIf="
         contactFormGroup.controls['message'].dirty ||
@@ -67,7 +91,10 @@
     >
       <div *ngIf="contactFormGroup.controls['message'].errors?.['required']">
         <!-- TODO: translate -->
-        <p class="error">Please enter your message.</p>
+        <p class="error">
+          The message is not valid. Please enter your valid message, at least
+          one character long.
+        </p>
       </div>
     </ng-container>
   </div>

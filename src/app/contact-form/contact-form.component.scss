@@ -1,4 +1,3 @@
-/* contact-form.component.scss */
 @import "src/modules/utilities/_button";
 @import "src/modules/utilities/_vars";
 @import "src/assets/fonts/_typography";
@@ -17,34 +16,59 @@
     $transitionTime: 150ms;
     position: relative;
     width: 100%;
+
     textarea {
+      display: inline;
       resize: vertical;
       max-height: 300px;
       min-height: 200px;
+      // transisation while resizing deactivated
+      transition: none;
+
+      // block resizing while disabled state
+      &:disabled {
+        resize: none;
+
+        // hide the resize symbol when disabled
+        &::-webkit-resizer {
+          display: none;
+        }
+      }
     }
+
     input,
     textarea,
     select {
       width: 100%;
-      padding: 10px;
+      padding: 16px;
       border: 2px solid transparent;
       border-bottom: 2px solid $background_clr;
-      background-color: $primary_clr !important;
-      color: $background_clr !important;
+      background-color: $primary_clr;
+      color: $background_clr;
+      // caret color
+      caret-color: $background_clr;
       outline: none;
-      font-size: $fs-md !important;
-      transition: $transitionTime;
+      font-size: $fs-md;
+      transition: background-color $transitionTime, border-color $transitionTime,
+        color $transitionTime;
 
       &:hover {
         border: 2px solid $background_clr;
+
+        & ~ span {
+          padding-left: 16px;
+        }
       }
 
       &:focus {
         ~ span {
-          transform: translateX(10px) translateY(-10px);
+          transform: translateY(-26px);
+          padding-bottom: 0px;
+          padding-left: 8px;
+          margin-left: 10px;
+          padding-right: 8px;
           font-size: $fs-sm;
           font-weight: $fw-600;
-          padding: 0 10px;
           background-color: $primary_clr;
           letter-spacing: 5px;
           color: $background_clr;
@@ -56,6 +80,7 @@
         &.ng-invalid {
           border: 2px solid $red;
           color: $red;
+          caret-color: $red;
 
           ~ span {
             color: $red;
@@ -63,39 +88,23 @@
         }
       }
 
-      /* Autofill styles for both Webkit and other browsers */
-      &:-webkit-autofill,
-      &:-webkit-autofill:hover,
-      &:-webkit-autofill:focus {
-        background-color: $primary_clr !important;
-        -webkit-box-shadow: 0 0 0 1000px $primary_clr inset !important;
-        box-shadow: 0 0 0 1000px $primary_clr inset !important;
-
-        &.ng-valid {
-          border: 2px solid $background_clr;
-          color: $background_clr !important;
-          -webkit-text-fill-color: $background_clr !important;
-        }
-
-        &.ng-invalid {
-          border: 2px solid $red;
-          color: $red !important;
-          -webkit-text-fill-color: $red !important;
-        }
-      }
-
       &.ng-touched,
       &.ng-dirty {
         &.ng-valid {
-          border-bottom: 2px solid $background_clr;
           color: $background_clr;
+          caret-color: $background_clr;
+          border: 2px solid $primary_clr;
+          border-bottom: 2px solid $background_clr;
 
           ~ span {
             color: $background_clr;
-            transform: translateX(10px) translateY(-10px);
+            transform: translateY(-26px);
+            padding-bottom: 0px;
+            padding-left: 8px;
+            margin-left: 10px;
+            padding-right: 8px;
             font-size: $fs-sm;
             font-weight: $fw-600;
-            padding: 0 10px;
             background-color: $primary_clr;
             letter-spacing: 5px;
           }
@@ -108,6 +117,7 @@
         &.ng-invalid {
           border-bottom: 2px solid $red;
           color: $red;
+          caret-color: $red;
 
           ~ span {
             color: $red;
@@ -123,7 +133,8 @@
     span {
       position: absolute;
       left: 0;
-      padding: 10px 30px;
+      padding: 16px 30px;
+      padding-left: 0px;
       font-size: $fs-regular;
       color: $background_clr;
       pointer-events: none;
@@ -131,72 +142,249 @@
     }
 
     .invalid-filled-input {
-      color: $red !important;
+      color: $red;
+      caret-color: $red;
 
       ~ span {
-        color: $red !important;
-        transform: translateX(10px) translateY(-10px) !important;
-        font-size: $fs-sm !important;
+        color: $red;
+        transform: translateY(-26px);
+        padding-bottom: 0px;
+        padding-left: 8px;
+        margin-left: 10px;
+        padding-right: 8px;
+        font-size: $fs-sm;
         font-weight: $fw-600;
-        padding: 0 10px !important;
-        background-color: $primary_clr !important;
+        background-color: $primary_clr;
         letter-spacing: 5px;
       }
     }
 
+    :disabled {
+      &.ng-touched,
+      &.ng-dirty {
+        pointer-events: none;
+        cursor: not-allowed;
+        border-bottom-color: #807e7a !important;
+        color: #807e7a;
+        caret-color: #807e7a;
+        -webkit-text-fill-color: #807e7a;
+        text-decoration: #807e7a;
+
+        ~ span {
+          color: #807e7a !important;
+          border: 2px solid transparent !important;
+        }
+      }
+    }
+
     .error {
-      color: $red !important;
+      color: $red;
       font-size: $fs-xxs;
-      margin-top: 5px;
+      margin-top: 8px;
+    }
+
+    // styles the disabled input and text area on hover
+    .disabledHover {
+      pointer-events: auto !important;
+    }
+
+    &:has(.disabledHover:hover) .disabledHover {
+      border: 2px solid $primary_clr !important;
+      border-bottom-color: rgba(128, 126, 122, 0.7) !important;
+      cursor: not-allowed !important;
+      color: rgba(128, 126, 122, 0.7);
+      caret-color: rgba(128, 126, 122, 0.7);
+      -webkit-text-fill-color: rgba(128, 126, 122, 0.7);
+      text-decoration: rgba(128, 126, 122, 0.7);
     }
   }
 }
-/* Autofill styles for both Webkit and other browsers */
-input:autofill,
-input:autofill:hover,
-input:autofill:focus,
-textarea:autofill,
-textarea:autofill:hover,
-textarea:autofill:focus,
-select:autofill,
-select:autofill:hover,
-select:autofill:focus {
-  background-color: $primary_clr !important;
-  -webkit-box-shadow: 0 0 0 1000px $primary_clr inset !important;
-  box-shadow: 0 0 0 1000px $primary_clr inset !important;
+
+.inputBox-with-textarea {
+  display: inline-grid;
+}
+
+/* Custom autofill styles for all browsers */
+
+/* Autofill styles for Webkit browsers */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill,
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill:hover,
+select:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+  background-color: $primary_clr;
+  -webkit-box-shadow: 0 0 0 1000px $primary_clr inset;
+  box-shadow: 0 0 0 1000px $primary_clr inset;
 
   &.ng-valid {
-    border: 2px solid $background_clr;
-    color: $background_clr !important;
-    -webkit-text-fill-color: $background_clr !important;
+    color: $background_clr;
+    -webkit-text-fill-color: $background_clr;
+    caret-color: $background_clr;
   }
 
   &.ng-invalid {
     border: 2px solid $red;
-    color: $red !important;
-    -webkit-text-fill-color: $red !important;
+    color: $red;
+    -webkit-text-fill-color: $red;
+    caret-color: $red;
   }
 }
 
-/* Autofill styles for both Webkit and other browsers */
-input:-internal-autofill-selected,
-textarea:-internal-autofill-selected,
-select:-internal-autofill-selected {
-  background-color: $primary_clr !important;
-  -webkit-box-shadow: 0 0 0 1000px $primary_clr inset !important;
-  box-shadow: 0 0 0 1000px $primary_clr inset !important;
+/* Autofill styles for Firefox */
+input:-moz-autofill,
+textarea:-moz-autofill,
+select:-moz-autofill {
+  background-color: $primary_clr;
+  box-shadow: 0 0 0 1000px $primary_clr inset;
 
   &.ng-valid {
     border: 2px solid $background_clr;
-    color: $background_clr !important;
-    -webkit-text-fill-color: $background_clr !important;
+    color: $background_clr;
+    caret-color: $background_clr;
   }
 
   &.ng-invalid {
     border: 2px solid $red;
-    color: $red !important;
-    -webkit-text-fill-color: $red !important;
+    color: $red;
+    caret-color: $red;
   }
+}
+
+/* Autofill styles for Internet Explorer and Edge */
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+select:-ms-input-placeholder,
+input:-ms-autofill,
+textarea:-ms-autofill,
+select:-ms-autofill {
+  background-color: $primary_clr;
+  box-shadow: 0 0 0 1000px $primary_clr inset;
+
+  &.ng-valid {
+    border: 2px solid $background_clr;
+    color: $background_clr;
+    caret-color: $background_clr;
+  }
+
+  &.ng-invalid {
+    border: 2px solid $red;
+    color: $red;
+    caret-color: $red;
+  }
+}
+
+/* Autofill styles for Opera */
+input:-o-autofill,
+textarea:-o-autofill,
+select:-o-autofill {
+  background-color: $primary_clr;
+  box-shadow: 0 0 0 1000px $primary_clr inset;
+
+  &.ng-valid {
+    border: 2px solid $background_clr;
+    color: $background_clr;
+    caret-color: $background_clr;
+  }
+
+  &.ng-invalid {
+    border: 2px solid $red;
+    color: $red;
+    caret-color: $red;
+  }
+}
+
+/* Custom scrollbar styles for all browsers */
+
+/* Webkit browsers */
+textarea::-webkit-scrollbar {
+  width: 12px;
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: $background_clr;
+  border-radius: 6px;
+  border: 3px solid transparent;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background: darken($background_clr, 10%);
+}
+textarea.ng-invalid::-webkit-scrollbar-thumb {
+  background: $red;
+}
+textarea.ng-valid::-webkit-scrollbar-thumb {
+  background: $background_clr;
+}
+
+textarea:disabled:-webkit-scrollbar-thumb {
+  background: #807e7a;
+}
+textarea:disabled.ng-valid::-webkit-scrollbar-thumb {
+  background: #807e7a;
+}
+textarea:disabled.ng-valid::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 126, 122, 0.7) transparent;
+}
+
+/* Firefox */
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: $background_clr transparent;
+}
+textarea.ng-invalid {
+  scrollbar-color: $red transparent;
+}
+textarea.ng-valid {
+  scrollbar-color: $background_clr transparent;
+}
+
+textarea:disabled {
+  scrollbar-color: #807e7a transparent;
+}
+textarea:disabled.ng-valid {
+  scrollbar-color: #807e7a transparent;
+}
+
+textarea:disabled.ng-valid:hover {
+  scrollbar-color: rgba(128, 126, 122, 0.7) transparent;
+}
+
+/* IE (Fallback) */
+textarea::-ms-scrollbar {
+  width: 12px;
+}
+textarea::-ms-scrollbar-track {
+  background: transparent;
+}
+textarea::-ms-scrollbar-thumb {
+  background: $background_clr;
+  border-radius: 6px;
+  border: 3px solid transparent;
+}
+textarea::-ms-scrollbar-thumb:hover {
+  background: darken($background_clr, 10%);
+}
+textarea.ng-invalid::-ms-scrollbar-thumb {
+  background: $red;
+}
+textarea.ng-valid::-ms-scrollbar-thumb {
+  background: $background_clr;
+}
+
+textarea:disabled:-ms-scrollbar-thumb {
+  background: #807e7a;
+}
+
+textarea:disabled.ng-valid::-ms-scrollbar-thumb {
+  background: #807e7a;
+}
+textarea:disabled.ng-valid::-ms-scrollbar-thumb:hover {
+  background: rgba(128, 126, 122, 0.7) transparent;
 }
 
 @media (max-width: 630px) {
