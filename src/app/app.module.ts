@@ -16,6 +16,7 @@ import { ScrollSpyDirective } from './utils/scroll-spy.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FooterComponent } from './footer/footer.component';
     StartComponent,
     ScrollSpyDirective,
     FooterComponent,
+    LegalNoticeComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [provideAnimations()],
+  // providers: [provideAnimations()],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

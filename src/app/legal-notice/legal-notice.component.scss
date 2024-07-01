@@ -1,0 +1,9 @@
+@import "src/modules/utilities/_vars";
+
+.container {
+  padding: $padding-side !important;
+  padding-bottom: 150px !important;
+  position: relative;
+  top: 110px;
+  text-align: justify;
+}
