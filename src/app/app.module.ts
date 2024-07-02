@@ -17,6 +17,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { SocialsComponent } from './socials/socials.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
     ScrollSpyDirective,
     FooterComponent,
     LegalNoticeComponent,
+    SocialsComponent,
   ],
   imports: [
     BrowserModule,

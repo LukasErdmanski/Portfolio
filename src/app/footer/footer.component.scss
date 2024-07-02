@@ -15,8 +15,6 @@
   padding-top: 15px;
 
   .left-side {
-    background-color: cadetblue;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,8 +22,6 @@
     gap: 20px;
 
     div {
-      background-color: lightgrey;
-
       display: flex;
       gap: 10px;
       pointer-events: none;
@@ -33,23 +29,13 @@
   }
 
   .right-side {
-    background-color: chocolate;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     gap: 20px;
 
-    // TODO: delete later after implemented socials component
-    .socials {
-      display: flex;
-      gap: 20px;
-    }
-
     .legalNotice {
-      background-color: darkseagreen;
-
       font-size: $fs-sm;
       font-weight: $fw-300;
       cursor: pointer;
