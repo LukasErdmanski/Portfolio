@@ -31,7 +31,7 @@
     flex-direction: column;
     gap: 25px;
 
-    h2 {
+    h3 {
       font-size: $fs-headline3;
       color: $secondary_clr;
     }
@@ -117,7 +117,7 @@
   .contact-container {
     align-items: none;
 
-    h2,
+    h3,
     span {
       text-align: center;
     }

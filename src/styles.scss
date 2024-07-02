@@ -61,3 +61,6 @@ h1 {
     text-shadow: $ts-offset calc($ts-offset/2) $secondary_clr;
   }
 }
+
+// TODO: adjust positioning of component, centralize it horizontally, see legal-notice on small devices with device width of 240 px; adjust html, body, app-root with, height, display etc property
+// TODO: implement safe area for safari, iPhone
