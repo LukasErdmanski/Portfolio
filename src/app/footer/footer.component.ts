@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { scrollSectionToTop } from '../utils/scrollSectionToTop.function';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +6,7 @@ import { scrollSectionToTop } from '../utils/scrollSectionToTop.function';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-  protected scrollSectionToTop: Function = scrollSectionToTop;
+  protected scrollToTop(): void {
+    window.scrollTo(0, 0);
+  }
 }

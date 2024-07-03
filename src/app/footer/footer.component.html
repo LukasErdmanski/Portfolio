@@ -12,10 +12,8 @@
   <div class="right-side">
     <app-socials></app-socials>
     <div class="legalNotice">
-      <!-- TODO: add router gLink here AND in routes in app.module.ts -->
       <!-- TODO: translate -->
-      <!-- TODO: add scrolling to start onClick event when it routes to legal notice -->
-      <a routerLink="/legal-notice">Legal notice</a>
+      <a routerLink="/legal-notice" (click)="scrollToTop()">Legal notice</a>
     </div>
   </div>
 </div>

@@ -12,7 +12,6 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { SkillsComponent } from './skills/skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
-import { ScrollSpyDirective } from './utils/scroll-spy.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
@@ -29,7 +28,6 @@ import { SocialsComponent } from './socials/socials.component';
     ContactComponent,
     ContactFormComponent,
     StartComponent,
-    ScrollSpyDirective,
     FooterComponent,
     LegalNoticeComponent,
     SocialsComponent,
@@ -41,8 +39,7 @@ import { SocialsComponent } from './socials/socials.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  // providers: [provideAnimations()],
-  providers: [],
+  providers: [provideAnimations()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

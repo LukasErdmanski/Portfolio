@@ -44,6 +44,12 @@
         white-space: nowrap;
       }
     }
+
+    a {
+      display: contents;
+      text-decoration: none;
+    }
+
     .mobile-btn {
       display: none;
       padding: 8px 12px;
