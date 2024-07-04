@@ -5,7 +5,8 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NavMenuService } from '../utils/nav-menu.service';
 
 @Component({
   selector: 'app-navbar',
@@ -26,9 +27,20 @@ import { Component, ViewChild } from '@angular/core';
   ],
 })
 export class NavbarComponent {
-  @ViewChild('habBtn') habBtn!: HTMLElement;
+  @ViewChild('hamBtn') private habBtn!: ElementRef;
 
-  protected changeLang(language: string): void {
+  constructor(public navMenuService: NavMenuService) {}
+
+  protected openNavbar(): void {
+    this.navMenuService.isMenuOpen = !this.navMenuService.isMenuOpen;
+    this.habBtn.nativeElement.setAttribute.ariaExpanded =
+      this.navMenuService.isMenuOpen;
+    setTimeout(() => {
+      // TODO: add 'checked' class to the last choosen language
+    }, 100);
+  }
+
+  protected changeLanguage(language: string): void {
     const langaugeElements: NodeListOf<Element> =
       document.querySelectorAll('.lang');
     langaugeElements.forEach((languageElement: Element) =>
@@ -37,6 +49,8 @@ export class NavbarComponent {
 
     document.querySelector('.' + language)?.classList.add('checked');
 
+    // TODO: use the choosen language to translate to it
+    // TODO: set globally current language in the service
     if (language === 'en') console.log('Current language is EN');
     else console.log('Current language is DE');
   }
