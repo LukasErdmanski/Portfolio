@@ -62,5 +62,24 @@ h1 {
   }
 }
 
+.logo {
+  background-color: cadetblue;
+
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    filter: invert(57%) sepia(60%) saturate(998%) hue-rotate(358deg)
+      brightness(100%) contrast(109%);
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 450px) {
+    height: 35px;
+  }
+}
+
 // TODO: adjust positioning of component, centralize it horizontally, see legal-notice on small devices with device width of 240 px; adjust html, body, app-root with, height, display etc property
 // TODO: implement safe area for safari, iPhone
