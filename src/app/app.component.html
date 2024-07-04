@@ -7,13 +7,14 @@
     <h2>NAVIGATION BAR VER 1: IN APP COMPONENT</h2>
     <h4>Menu</h4>
 
-    <a *ngFor="let section of sectionsIds; let i = index" href="#{{ section }}">
+    < *ngFor="let section of sectionsIds; let i = index" href="#{{ section }}">
       <span *ngIf="i > 0"> | </span>{{ section }}
-    </a>
+    </
   </div>
 </header> -->
 
 <section class="nav">
+  <app-navmenu></app-navmenu>
   <app-navbar></app-navbar>
 </section>
 

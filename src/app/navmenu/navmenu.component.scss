@@ -1,0 +1,108 @@
+@import "src/modules/utilities/_vars";
+@import "src/assets/fonts/_typography";
+
+.navmenu {
+  position: fixed;
+  $top: 110px;
+  inset: 0;
+  z-index: 5;
+  height: 100vh;
+  width: 100%;
+  background-color: $background_clr;
+
+  background-color: darkkhaki;
+
+  .navlink-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 20%);
+    padding: $padding-side;
+
+    border: 2px solid red;
+
+    .navlink {
+      $line-height: 3px;
+      $line-length: 40px;
+      position: relative;
+      font-size: $fs-headline1;
+      font-weight: $fw-black;
+      font-family: $secondary_font;
+      padding: 20px 30px;
+      width: clamp(220px, 100%, 1000px);
+      text-align: center;
+      cursor: pointer;
+
+      a {
+        text-decoration: none;
+        color: $primary_clr;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: $line-length;
+        width: $line-height;
+        background-color: $primary_clr;
+        transition: height $onHover $delay;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: $line-height;
+        width: $line-length;
+        background-color: $primary_clr;
+        animation: underline-backward $onHover ease-out forwards;
+      }
+
+      &:focus {
+        border: 3px solid $primary_clr !important;
+      }
+
+      &:hover {
+        &:before {
+          height: 0;
+        }
+
+        &:after {
+          animation: underline-forward $onHover $delay ease-in forwards;
+        }
+
+        @keyframes underline-forward {
+          0% {
+            width: $line-length;
+          }
+          50% {
+            width: 100%;
+          }
+          100% {
+            width: 225px;
+            right: 0;
+            left: unset;
+          }
+        }
+
+        @keyframes underline-backward {
+          100% {
+            width: $line-length;
+          }
+          50% {
+            width: 100%;
+          }
+          0% {
+            width: 225px;
+            right: 0;
+            left: unset;
+          }
+        }
+      }
+    }
+  }
+}

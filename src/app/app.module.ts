@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { SocialsComponent } from './socials/socials.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NavmenuComponent } from './navmenu/navmenu.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     LegalNoticeComponent,
     SocialsComponent,
     NavbarComponent,
+    NavmenuComponent,
   ],
   imports: [
     BrowserModule,
