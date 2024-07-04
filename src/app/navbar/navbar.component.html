@@ -3,11 +3,12 @@
     <!-- TODO: change finally against my logo -->
     <img class="logo" src="assets/img/socials/github.svg" alt="logo" />
   </a>
-  <div class="lang-container">
-    <span class="lang de">DE</span>
-    <span class="lang en">EN</span>
+  <div class="lang-container" [@openClose]>
+    <span class="lang de" (click)="changeLang('de')">DE</span>
+    <span class="lang en" (click)="changeLang('en')">EN</span>
   </div>
   <button
+    #hamBtn
     class="hamBtn"
     aria-controls="primary-navigation"
     aria-expanded="false"
