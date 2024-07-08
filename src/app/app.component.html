@@ -1,26 +1,13 @@
-<!-- <section>
-  <app-legal-notice></app-legal-notice>
-</section> -->
-
-<!-- <header class="nav">
-  <div>
-    <h2>NAVIGATION BAR VER 1: IN APP COMPONENT</h2>
-    <h4>Menu</h4>
-
-    < *ngFor="let section of sectionsIds; let i = index" href="#{{ section }}">
-      <span *ngIf="i > 0"> | </span>{{ section }}
-    </
-  </div>
-</header> -->
-
-<section class="nav">
-  <app-navmenu></app-navmenu>
+<header class="nav">
+  <app-navmenu
+    *ngIf="this.navMenuService.isMenuOpen()"
+    [@childAnimation]
+  ></app-navmenu>
   <app-navbar></app-navbar>
-</section>
+</header>
 
 <router-outlet></router-outlet>
 
-<!-- <footer class="nav"> -->
 <footer>
   <app-footer></app-footer>
 </footer>

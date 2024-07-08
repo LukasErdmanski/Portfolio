@@ -1,11 +1,13 @@
 <a
   *ngFor="let socialItem of socialsItems; let i = index"
-  href="{{ socialItem.link }}"
-  target="{{ socialItem.target }}"
+  [attr.href]="shoudlHaveATagAttribute(socialItem) ? socialItem.link : null"
+  [attr.target]="shoudlHaveATagAttribute(socialItem) ? socialItem.target : null"
+  (click)="
+    shoudlHaveClickAttribute(socialItem)
+      ? navMenuService.moveToSection('contact')
+      : null
+  "
 >
-  <!-- TODO: In case of contact it should stay in the same browser tab and just scroll to #contact section without opening new tab OR loading newly the whole page.
-  Check which route fragment will be right for it, ..../#contact or ..../contact.
-  -->
   <img
     class="socialIcon"
     src="assets/img/socials/{{ socialItem.logo }}"

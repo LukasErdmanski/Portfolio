@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavMenuService } from '../utils/navmenu.service';
 
 export type SocialItem = {
   link: string;
@@ -13,6 +14,8 @@ export type SocialItem = {
   styleUrl: './socials.component.scss',
 })
 export class SocialsComponent {
+  constructor(protected navMenuService: NavMenuService) {}
+
   protected socialsItems: SocialItem[] = [
     {
       link: 'https://github.com/LukasErdmanski',
@@ -33,4 +36,14 @@ export class SocialsComponent {
       name: 'linkedin',
     },
   ];
+
+  protected shoudlHaveATagAttribute(socialItem: SocialItem): boolean {
+    const navMenuOpenState = this.navMenuService.isMenuOpen();
+    return !navMenuOpenState || socialItem.name !== 'email';
+  }
+
+  protected shoudlHaveClickAttribute(socialItem: SocialItem): boolean {
+    const navMenuOpenState = this.navMenuService.isMenuOpen();
+    return navMenuOpenState && socialItem.name == 'email';
+  }
 }

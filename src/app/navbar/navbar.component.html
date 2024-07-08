@@ -3,7 +3,7 @@
     <!-- TODO: change finally against my logo -->
     <img class="logo" src="assets/img/socials/github.svg" alt="logo" />
   </a>
-  <div *ngIf="navMenuService.isMenuOpen" [@openClose] class="lang-container">
+  <div *ngIf="navMenuService.isMenuOpen()" [@openClose] class="lang-container">
     <span class="lang de" (click)="changeLanguage('de')">DE</span>
     <span class="lang en" (click)="changeLanguage('en')">EN</span>
   </div>

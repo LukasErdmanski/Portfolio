@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NavMenuService } from './nav-menu.service';
+import { NavMenuService } from './navmenu.service';
 
 describe('NavMenuService', () => {
   let service: NavMenuService;

@@ -1,25 +1,29 @@
 <div class="navmenu">
-  <div class="navlink-container">
+  <div [@openClose] class="navlink-container">
     <div class="navlink">
       <!-- TODO: translate -->
-      <div>About me</div>
+      <div (click)="navMenuService.moveToSection('about-me')">About me</div>
     </div>
     <div class="navlink">
       <!-- TODO: translate -->
-      <div>My skills</div>
+      <div (click)="navMenuService.moveToSection('skills')">My skills</div>
     </div>
     <div class="navlink">
       <!-- TODO: translate -->
-      <div>Portfolio</div>
+      <div (click)="navMenuService.moveToSection('portfolio')">Portfolio</div>
     </div>
   </div>
 
-  <footer class="footer-nav">
+  <footer [@openCloseFooter] class="footer-nav">
     <div class="content">
       <div class="left-side">
         <!-- TODO: translate -->
-        <h1 class="white">Say Hi!</h1>
-        <span>lukas.erdmanski&#64;yahoo.com</span>
+        <h1 (click)="navMenuService.moveToSection('contact')" class="white">
+          Say Hi!
+        </h1>
+        <span (click)="navMenuService.moveToSection('contact')"
+          >lukas.erdmanski&#64;yahoo.com</span
+        >
       </div>
 
       <div class="right-side">

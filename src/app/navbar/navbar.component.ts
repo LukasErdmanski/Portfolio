@@ -6,7 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { NavMenuService } from '../utils/nav-menu.service';
+import { NavMenuService } from '../utils/navmenu.service';
 
 @Component({
   selector: 'app-navbar',
@@ -29,12 +29,13 @@ import { NavMenuService } from '../utils/nav-menu.service';
 export class NavbarComponent {
   @ViewChild('hamBtn') private habBtn!: ElementRef;
 
-  constructor(public navMenuService: NavMenuService) {}
+  constructor(protected navMenuService: NavMenuService) {}
 
   protected openNavbar(): void {
-    this.navMenuService.isMenuOpen = !this.navMenuService.isMenuOpen;
+    this.navMenuService.setMenuOpenState(!this.navMenuService.isMenuOpen());
+
     this.habBtn.nativeElement.setAttribute.ariaExpanded =
-      this.navMenuService.isMenuOpen;
+      this.navMenuService.isMenuOpen();
     setTimeout(() => {
       // TODO: add 'checked' class to the last choosen language
     }, 100);
