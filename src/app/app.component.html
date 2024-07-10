@@ -1,13 +1,11 @@
-<header class="nav">
+<header>
   <app-navmenu
     *ngIf="this.navMenuService.isMenuOpen()"
     [@childAnimation]
   ></app-navmenu>
   <app-navbar></app-navbar>
 </header>
-
 <router-outlet></router-outlet>
-
 <footer>
   <app-footer></app-footer>
 </footer>

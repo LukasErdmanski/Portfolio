@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { SelectedLanguageService } from '../utils/selected-language.service';
 
 @Component({
   selector: 'app-start-screen',
@@ -50,4 +51,6 @@ import { trigger, style, animate, transition } from '@angular/animations';
     ]),
   ],
 })
-export class StartScreenComponent {}
+export class StartScreenComponent {
+  constructor(protected selectedLanguageService: SelectedLanguageService) {}
+}

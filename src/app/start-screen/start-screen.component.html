@@ -2,16 +2,14 @@
   <div class="wrapper">
     <div>
       <p [@slideInRight] class="headline">Frontend</p>
-      <!-- TODO: translate delevoper to german -->
-      <p [@slideInLeft] class="headline">Developer</p>
+      <p [@slideInLeft] class="headline" translate>Developer</p>
       <div [@popUp] class="subtitle">
         <div class="horizontal-line"></div>
         <span class="my-name">Lukas Erdmanski</span>
       </div>
     </div>
-    <!-- TODO: translate send a message to german -->
     <a href="#contact">
-      <button class="btn btn-black mobile-btn">Send a message</button>
+      <button class="btn btn-black mobile-btn" translate>Send a message</button>
     </a>
   </div>
   <div class="socials">
@@ -22,7 +20,11 @@
       <div class="img-container">
         <img src="assets/img/arrow.svg" alt="arrow" />
       </div>
-      <div [@fadeIn] class="text-container">
+      <div
+        *ngIf="selectedLanguageService.getCurrentLanguage() === 'en'"
+        [@fadeIn]
+        class="text-container"
+      >
         <div>
           <span>S</span>
           <span>c</span>
@@ -32,9 +34,39 @@
           <span>l</span>
         </div>
         <div>
-          <span>D</span>
+          <span>d</span>
           <span>o</span>
           <span>w</span>
+          <span>n</span>
+        </div>
+      </div>
+
+      <div
+        *ngIf="selectedLanguageService.getCurrentLanguage() === 'de'"
+        [@fadeIn]
+        class="text-container"
+      >
+        <div>
+          <span>N</span>
+          <span>a</span>
+          <span>c</span>
+          <span>h</span>
+        </div>
+        <div>
+          <span>u</span>
+          <span>n</span>
+          <span>t</span>
+          <span>e</span>
+          <span>n</span>
+        </div>
+        <div>
+          <span>s</span>
+          <span>c</span>
+          <span>r</span>
+          <span>o</span>
+          <span>l</span>
+          <span>l</span>
+          <span>e</span>
           <span>n</span>
         </div>
       </div>

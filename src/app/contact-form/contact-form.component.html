@@ -17,8 +17,7 @@
       formControlName="name"
       [class.disabledHover]="isFormDisabled"
     />
-    <!-- TODO: trasnlate -->
-    <span [class.disabledHover]="isFormDisabled">Your name</span>
+    <span [class.disabledHover]="isFormDisabled" translate>Your name</span>
     <ng-container
       *ngIf="
         contactFormGroup.controls['name'].dirty ||
@@ -26,8 +25,7 @@
       "
     >
       <div *ngIf="contactFormGroup.controls['name'].errors?.['required']">
-        <!-- TODO: translate -->
-        <p class="error" [class.disabledHover]="isFormDisabled">
+        <p class="error" [class.disabledHover]="isFormDisabled" translate>
           The name is not valid. Please enter your name, at least one character
           long.
         </p>
@@ -49,8 +47,7 @@
       [class.disabledHover]="isFormDisabled"
       [class.disabled-overlay]="isFormDisabled"
     />
-    <!-- TODO: trasnlate -->
-    <span [class.disabledHover]="isFormDisabled">Your email</span>
+    <span [class.disabledHover]="isFormDisabled" translate>Your email</span>
     <ng-container
       *ngIf="
         contactFormGroup.controls['email'].dirty ||
@@ -58,8 +55,7 @@
       "
     >
       <div *ngIf="contactFormGroup.controls['email'].errors">
-        <!-- TODO: translate -->
-        <p class="error">
+        <p class="error" translate="">
           The e-mail address is not valid. Please enter your valid e-mail
           address.
         </p>
@@ -81,8 +77,7 @@
       "
       [class.disabledHover]="isFormDisabled"
     ></textarea>
-    <!-- TODO: trasnlate -->
-    <span [class.disabledHover]="isFormDisabled">Your message</span>
+    <span [class.disabledHover]="isFormDisabled" translate>Your message</span>
     <ng-container
       *ngIf="
         contactFormGroup.controls['message'].dirty ||
@@ -90,8 +85,7 @@
       "
     >
       <div *ngIf="contactFormGroup.controls['message'].errors?.['required']">
-        <!-- TODO: translate -->
-        <p class="error">
+        <p class="error" translate>
           The message is not valid. Please enter your valid message, at least
           one character long.
         </p>
@@ -99,7 +93,6 @@
     </ng-container>
   </div>
 
-  <!-- TODO: translate -->
   <button
     #formButton
     type="submit"
@@ -110,6 +103,7 @@
         (contactFormGroup.dirty || contactFormGroup.touched)
       )
     "
+    translate
   >
     Send
   </button>

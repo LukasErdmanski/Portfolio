@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   templateUrl: './start.component.html',
   styleUrl: './start.component.scss',
 })
+// TODO: rename finally maybe to section or outlet wrapper
 export class StartComponent {
   protected sectionsIds: string[] = [
     'start-screen',

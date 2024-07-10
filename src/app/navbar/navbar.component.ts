@@ -7,6 +7,8 @@ import {
 } from '@angular/animations';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavMenuService } from '../utils/navmenu.service';
+import { SelectedLanguageService } from '../utils/selected-language.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -29,15 +31,21 @@ import { NavMenuService } from '../utils/navmenu.service';
 export class NavbarComponent {
   @ViewChild('hamBtn') private habBtn!: ElementRef;
 
-  constructor(protected navMenuService: NavMenuService) {}
+  constructor(
+    protected navMenuService: NavMenuService,
+    protected selectedLanguuageService: SelectedLanguageService,
+    protected translateService: TranslateService
+  ) {}
 
   protected openNavbar(): void {
     this.navMenuService.setMenuOpenState(!this.navMenuService.isMenuOpen());
-
     this.habBtn.nativeElement.setAttribute.ariaExpanded =
       this.navMenuService.isMenuOpen();
     setTimeout(() => {
-      // TODO: add 'checked' class to the last choosen language
+      const selectLangBtnElem: Element = document.querySelector(
+        '.' + this.selectedLanguuageService.getCurrentLanguage()
+      )!;
+      selectLangBtnElem.classList.add('checked');
     }, 100);
   }
 
@@ -47,12 +55,12 @@ export class NavbarComponent {
     langaugeElements.forEach((languageElement: Element) =>
       languageElement.classList.remove('checked')
     );
-
     document.querySelector('.' + language)?.classList.add('checked');
 
-    // TODO: use the choosen language to translate to it
-    // TODO: set globally current language in the service
-    if (language === 'en') console.log('Current language is EN');
-    else console.log('Current language is DE');
+    this.translateService.use(language);
+
+    if (language === 'en')
+      this.selectedLanguuageService.setCurrentLanguage('en');
+    else this.selectedLanguuageService.setCurrentLanguage('de');
   }
 }

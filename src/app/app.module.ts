@@ -20,30 +20,53 @@ import { SocialsComponent } from './socials/socials.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 
+import {
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
-    AppComponent,
-    StartScreenComponent,
     AboutMeComponent,
-    SkillsComponent,
-    PortfolioComponent,
+    AppComponent,
     ContactComponent,
     ContactFormComponent,
-    StartComponent,
     FooterComponent,
     LegalNoticeComponent,
-    SocialsComponent,
     NavbarComponent,
     NavmenuComponent,
+    PortfolioComponent,
+    SkillsComponent,
+    SocialsComponent,
+    StartComponent,
+    StartScreenComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
-  providers: [provideAnimations()],
+  providers: [provideAnimations(), provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

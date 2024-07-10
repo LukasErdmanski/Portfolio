@@ -6,6 +6,7 @@ import {
   transition,
   state,
 } from '@angular/animations';
+import { SelectedLanguageService } from '../utils/selected-language.service';
 
 export type Project = {
   name: string;
@@ -187,6 +188,8 @@ export class PortfolioComponent {
   onResize() {
     this.windowInnerWith = window.innerWidth;
   }
+
+  constructor(protected selectedLanguageService: SelectedLanguageService) {}
 
   protected changeMouseState(state: string, i: number): void {
     if (state === 'rest' && this.windowInnerWith > 830)
