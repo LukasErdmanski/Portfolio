@@ -1,0 +1,79 @@
+@import "src/assets/styles/_vars";
+@import "src/assets/fonts/_typography";
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 110px 0;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1300px;
+    width: 100%;
+
+    h1 {
+      padding: 0 3vw;
+      text-align: center;
+      background-color: $background_clr;
+    }
+
+    .skill-container {
+      $padding: clamp(60px, 8vw, 90px);
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: $padding;
+      border: $frame;
+      margin-top: calc($padding * -1);
+
+      .skill {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+        transition: all 225ms ease-in-out;
+
+        img {
+          height: 75px;
+          transition: all 225ms ease-in-out;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+          color: $secondary_clr;
+          font-weight: 900;
+
+          img {
+            filter: invert(54%) sepia(98%) saturate(1393%) hue-rotate(1deg)
+              brightness(105%) contrast(105%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .skill-container {
+    padding: 60px 30px !important;
+
+    .skill {
+      width: 90px !important;
+
+      img {
+        height: 50px !important;
+      }
+    }
+  }
+}

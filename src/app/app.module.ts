@@ -2,30 +2,29 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StartComponent } from './start/start.component';
-import { StartScreenComponent } from './start-screen/start-screen.component';
+import { MainContentComponent } from './components/main-content/main-content.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import {
   BrowserAnimationsModule,
   provideAnimations,
 } from '@angular/platform-browser/animations';
-import { AboutMeComponent } from './about-me/about-me.component';
-import { SkillsComponent } from './skills/skills.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
-import { ContactComponent } from './contact/contact.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FooterComponent } from './footer/footer.component';
-import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
-import { SocialsComponent } from './socials/socials.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { NavmenuComponent } from './navmenu/navmenu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
+import { SocialsComponent } from './components/socials/socials.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavmenuComponent } from './components/navmenu/navmenu.component';
 
 import {
   HttpClient,
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-// import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -47,8 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PortfolioComponent,
     SkillsComponent,
     SocialsComponent,
-    StartComponent,
-    StartScreenComponent,
+    MainContentComponent,
+    LandingPageComponent,
   ],
   imports: [
     AppRoutingModule,

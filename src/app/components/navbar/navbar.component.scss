@@ -1,0 +1,65 @@
+@import "src/assets/styles/_vars";
+@import "src/assets/fonts/_typography";
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $padding-side;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: $background_clr;
+
+  background-color: blanchedalmond;
+
+  .lang-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .lang {
+      font-family: $secondary_font;
+      font-weight: $fw-black;
+      cursor: pointer;
+    }
+
+    .checked {
+      text-shadow: 2px 2px 2px $secondary_clr;
+    }
+
+    @media (max-width: 350px) {
+      flex-direction: column;
+    }
+  }
+
+  .hamBtn {
+    background-color: $background_clr;
+    border: none;
+    cursor: pointer;
+
+    .hamburger {
+      transition: translate 1s, rotate 1s;
+    }
+
+    &[aria-expanded="true"] .hamburger {
+      translate: 7.5px -5px;
+      rotate: 0.125turn;
+    }
+
+    .line {
+      transition: 0.75s ease-out;
+      stroke-dasharray: 60 31 60 31 60 300;
+    }
+    &[aria-expanded="true"] .line {
+      transition: 1.2s;
+      stroke-dasharray: 60 150 60 130 60 300;
+      stroke-dashoffset: -183;
+    }
+  }
+}

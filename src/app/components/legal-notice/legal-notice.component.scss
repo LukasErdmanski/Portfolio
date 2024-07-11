@@ -1,0 +1,85 @@
+@import "src/assets/styles/_vars";
+
+.container {
+  padding: $padding-side !important;
+  padding-bottom: 150px !important;
+  position: relative;
+  top: 110px;
+  text-align: justify;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: $secondary_font;
+  }
+
+  p,
+  ul,
+  ol,
+  li,
+  a {
+    font-family: $primary_font;
+    margin-left: 0;
+  }
+
+  h1 {
+    font-size: $fs-headline1;
+    font-weight: $fw-black;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: $fs-headline2;
+    font-weight: $fw-bold;
+    margin: 4vh 0;
+  }
+
+  h3 {
+    font-size: $fs-headline3;
+    font-weight: $fw-600;
+    margin: 3vh 0;
+  }
+
+  h4 {
+    font-size: $fs-headline4;
+    font-weight: $fw-600;
+    margin: 2vh 0;
+  }
+
+  p {
+    margin: 1.5vh 0;
+
+    a {
+      text-decoration: none !important;
+      color: $primary_clr;
+    }
+  }
+
+  ul,
+  ol {
+    list-style-position: outside;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    margin: 1.5vh 0;
+
+    &::marker {
+      margin-left: 0;
+    }
+
+    &::before {
+      content: "•";
+      margin-right: 0.5em;
+      flex-shrink: 0;
+    }
+
+    & > div {
+      flex-grow: 1;
+    }
+  }
+}

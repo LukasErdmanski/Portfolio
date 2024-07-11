@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavMenuService } from './utils/navmenu.service';
+import { NavMenuService } from './services/navmenu.service';
 import { animateChild, query, transition, trigger } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 

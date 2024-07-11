@@ -1,0 +1,12 @@
+@import "src/assets/styles/_vars";
+
+section {
+  min-height: 100%;
+  width: 100%;
+  padding: $padding-side;
+}
+
+// last section: contact component has no padding to expand totally background and width
+section:last-child {
+  padding: 0;
+}

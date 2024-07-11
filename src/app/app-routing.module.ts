@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StartComponent } from './start/start.component';
-import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { MainContentComponent } from './components/main-content/main-content.component';
+import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', component: StartComponent },
+  { path: '', pathMatch: 'full', component: MainContentComponent },
   { path: 'legal-notice', component: LegalNoticeComponent },
 ];
 
