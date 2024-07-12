@@ -3,10 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <title>Portfolio</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Required for successful routing when building and deploying on the Developer-Akademie FTP server. -->
+    <!-- ng build --configuration=production --base-href="/angular-projects/M14-16Portfolio/" -->
+    <base href="/angular-projects/M14-16Portfolio/" />
+
+    <!-- Required for successful routing when building and deploying on the Firebase Hosting. -->
+    <!-- <base href="/"> -->
+
+    <!-- Required for successful routing during local development using "ng serve --open" and deploying on localhost. -->
+    <!-- <base href="/" /> -->
+
+    <!-- The property viewport-fit-cover has to be added to the viewport attributes in order the env(safe.are.inset-*) works -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <!-- TODO: Change the default angular facicon and past my own one -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- The fonts can be sourced either from Google's CDN or from an existing CSS file.
+    Corresponding font files may be stored, for example, under '/assets/fonts'. They should be
+    linked in 'index.html', not in the app components. -->
+
+    <!-- TODO: delete later the path in component styles and _button.scss if the fonts files are exported right by ng build only one time and the project works without style bugs -->
+    <link rel="stylesheet" href="assets/fonts/_typography.scss" />
   </head>
   <body>
     <app-root></app-root>

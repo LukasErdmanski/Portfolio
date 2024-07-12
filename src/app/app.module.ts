@@ -20,6 +20,7 @@ import { SocialsComponent } from './components/socials/socials.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
 
+// Required for ngx-translate
 import {
   HttpClient,
   provideHttpClient,
@@ -27,10 +28,26 @@ import {
 } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { DOCUMENT } from '@angular/common';
 
+/**
+ * Factory function for the TranslateLoader.
+ * This function creates a new instance of TranslateHttpLoader.
+ * The loader will try to load translations using HttpClient.
+ *
+ * Here, we are dynamically determining the path to load translations based on the base href in the document.
+ * This ensures that the translations path works both in local development and when deployed.
+ *
+ * @param http HttpClient instance to make network requests.
+ * @param document An abstraction over the DOM document provided by Angular.
+ * @returns An instance of TranslateHttpLoader.
+ */
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+export function HttpLoaderFactory(http: HttpClient, document: any) {
+  // Getting the base URL from the document or defaulting to the current directory.
+  const baseHref = document.baseURI || './';
+  // Using the base URL to create the full path for loading translations.
+  return new TranslateHttpLoader(http, `${baseHref}assets/i18n/`, '.json');
 }
 
 @NgModule({
@@ -55,13 +72,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-
+    // Required for ngx-translate.
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
+        // Specifying the factory function for the loader.
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
+        // Specifying the dependencies required for the HttpLoaderFactory.
+        // We need both HttpClient for network requests and DOCUMENT to get the base href.
+        deps: [HttpClient, DOCUMENT],
       },
     }),
   ],
