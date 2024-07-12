@@ -1,5 +1,33 @@
 @import "src/assets/styles/_vars";
 
+header {
+  // TODO: delete later after testing
+  // border: 5px solid maroon;
+
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  .header-wrapper {
+    // TODO: delete later after testing
+    // border: 5px solid red;
+
+    position: relative;
+
+    app-navbar {
+      // TODO: delete later after testing
+      // border: 5px solid gold;
+
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+}
+
 footer {
   background-color: $primary_clr;
   padding: $padding-side;
