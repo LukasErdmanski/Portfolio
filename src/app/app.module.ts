@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
 import { SocialsComponent } from './components/socials/socials.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { HeaderComponent } from './components/header/header.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
 
 import {
@@ -41,7 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContactFormComponent,
     FooterComponent,
     LegalNoticeComponent,
-    NavbarComponent,
+    HeaderComponent,
     NavmenuComponent,
     PortfolioComponent,
     SkillsComponent,

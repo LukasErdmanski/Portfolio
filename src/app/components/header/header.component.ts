@@ -11,9 +11,9 @@ import { SelectedLanguageService } from '../../services/selected-language.servic
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
   animations: [
     trigger('openClose', [
       state(
@@ -28,7 +28,7 @@ import { TranslateService } from '@ngx-translate/core';
     ]),
   ],
 })
-export class NavbarComponent {
+export class HeaderComponent {
   @ViewChild('hamBtn') private habBtn!: ElementRef;
 
   constructor(
