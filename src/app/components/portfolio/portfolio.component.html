@@ -10,12 +10,14 @@
   </div>
 
   <!-- project -->
+  <!-- TODO: later define changeMouseStateOnClick for mobile -->
   <div
     *ngFor="let project of projects; let i = index; let even = even"
     class="project"
     [style.flexDirection]="even ? 'row' : 'row-reverse'"
     (mouseenter)="changeMouseState('hover', i)"
     (mouseleave)="changeMouseState('rest', i)"
+    (click)="changeMouseState('hover', i)"
   >
     <!-- triggers angular animation defined as 'colorUp' according to / after change of the project state value -->
     <div

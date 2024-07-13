@@ -10,6 +10,7 @@
   padding-bottom: 10px;
   background-color: $background_clr;
 
+  // TODO: delete late, only for testing
   background-color: blanchedalmond;
 
   .lang-container {
@@ -37,24 +38,5 @@
     background-color: $background_clr;
     border: none;
     cursor: pointer;
-
-    .hamburger {
-      transition: translate 1s, rotate 1s;
-    }
-
-    &[aria-expanded="true"] .hamburger {
-      translate: 7.5px -5px;
-      rotate: 0.125turn;
-    }
-
-    .line {
-      transition: 0.75s ease-out;
-      stroke-dasharray: 60 31 60 31 60 300;
-    }
-    &[aria-expanded="true"] .line {
-      transition: 1.2s;
-      stroke-dasharray: 60 150 60 130 60 300;
-      stroke-dashoffset: -183;
-    }
   }
 }

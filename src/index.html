@@ -5,13 +5,13 @@
     <title>Portfolio</title>
     <!-- Required for successful routing when building and deploying on the Developer-Akademie FTP server. -->
     <!-- ng build --configuration=production --base-href="/angular-projects/M14-16Portfolio/" -->
-    <base href="/angular-projects/M14-16Portfolio/" />
+    <!-- <base href="/angular-projects/M14-16Portfolio/" /> -->
 
     <!-- Required for successful routing when building and deploying on the Firebase Hosting. -->
     <!-- <base href="/"> -->
 
     <!-- Required for successful routing during local development using "ng serve --open" and deploying on localhost. -->
-    <!-- <base href="/" /> -->
+    <base href="/" />
 
     <!-- The property viewport-fit-cover has to be added to the viewport attributes in order the env(safe.are.inset-*) works -->
     <meta
@@ -26,8 +26,9 @@
     linked in 'index.html', not in the app components. -->
 
     <!-- TODO: delete later the path in component styles and _button.scss if the fonts files are exported right by ng build only one time and the project works without style bugs -->
-    <link rel="stylesheet" href="assets/fonts/_typography.scss" />
+    <!-- <link rel="stylesheet" href="assets/fonts/_typography.scss" /> -->
   </head>
+
   <body>
     <app-root></app-root>
   </body>

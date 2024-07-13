@@ -1,10 +1,12 @@
 @import "src/assets/styles/_vars";
 
-header {
-  // TODO: delete later after testing
-  // border: 5px solid maroon;
+:host {
+  display: block;
+  background-color: $background_clr;
+}
 
-  position: fixed;
+header {
+  position: sticky;
   z-index: 5;
   top: 0;
   left: 0;
@@ -12,18 +14,38 @@ header {
   width: 100%;
 
   .header-wrapper {
-    // TODO: delete later after testing
-    // border: 5px solid red;
-
     position: relative;
 
     app-header {
-      // TODO: delete later after testing
-      // border: 5px solid gold;
-
-      position: absolute;
+      position: sticky;
+      top: 0;
       width: 100%;
       z-index: 1;
+    }
+  }
+}
+
+.header-navmenu-open {
+  position: relative;
+
+  .header-wrapper {
+    app-header {
+      position: fixed;
+      left: 0;
+      right: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: constant(safe-area-inset-top);
+      top: env(safe-area-inset-top);
+      left: constant(safe-area-inset-left);
+      left: env(safe-area-inset-left);
+      right: constant(safe-area-inset-right);
+      right: env(safe-area-inset-right);
+      bottom: constant(safe-area-inset-bottom);
+      bottom: env(safe-area-inset-bottom);
+      box-sizing: border-box;
     }
   }
 }

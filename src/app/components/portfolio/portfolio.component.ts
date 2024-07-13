@@ -189,12 +189,18 @@ export class PortfolioComponent {
     this.windowInnerWith = window.innerWidth;
   }
 
+  protected lastStateAfterClick: 'hover' | 'rest' = 'rest';
+
   constructor(protected selectedLanguageService: SelectedLanguageService) {}
 
   protected changeMouseState(state: string, i: number): void {
     if (state === 'rest' && this.windowInnerWith > 830)
       this.projects[i].state = state;
     else this.projects[i].state = 'hover';
+  }
+
+  protected changeMouseStateOnClick(state: string, i: number): void {
+    // TODO: here later
   }
 
   protected positionArrow(even: boolean): string {

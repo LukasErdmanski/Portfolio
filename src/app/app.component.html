@@ -1,4 +1,4 @@
-<header>
+<header [class.header-navmenu-open]="this.navMenuService.isMenuOpen()">
   <div class="header-wrapper">
     <app-header></app-header>
     <nav>
@@ -10,10 +10,10 @@
   </div>
 </header>
 
-<main>
+<main *ngIf="!this.navMenuService.isMenuOpen()">
   <router-outlet></router-outlet>
 </main>
 
-<footer>
+<footer *ngIf="!this.navMenuService.isMenuOpen()">
   <app-footer></app-footer>
 </footer>
