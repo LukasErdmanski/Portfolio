@@ -16,6 +16,7 @@ export type Project = {
   link: string;
   img: string;
   state: 'rest' | 'hover';
+  clicked: boolean;
 };
 
 @Component({
@@ -140,6 +141,7 @@ export class PortfolioComponent {
       link: 'https://www.google.com/',
       img: 'portfolio-view.png',
       state: 'rest',
+      clicked: false,
     },
     {
       name: 'El polo loco',
@@ -153,6 +155,7 @@ export class PortfolioComponent {
       link: 'https://www.google.com/',
       img: 'portfolio-view.png',
       state: 'rest',
+      clicked: false,
     },
     {
       name: 'Portfolio',
@@ -166,6 +169,7 @@ export class PortfolioComponent {
       link: '#',
       img: 'portfolio-view.png',
       state: 'rest',
+      clicked: false,
     },
     {
       // TODO: finally change to valid github, link, img
@@ -179,28 +183,61 @@ export class PortfolioComponent {
       link: 'https://www.google.com/',
       img: 'portfolio-view.png',
       state: 'rest',
+      clicked: false,
     },
   ];
 
   protected windowInnerWith: number = 0;
+  private isCurrentDeviceMobileOrTablet!: boolean;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.windowInnerWith = window.innerWidth;
+    this.getIfDeviceIsMobileOrTablet();
   }
 
-  protected lastStateAfterClick: 'hover' | 'rest' = 'rest';
+  constructor(protected selectedLanguageService: SelectedLanguageService) {
+    this.getIfDeviceIsMobileOrTablet();
+  }
 
-  constructor(protected selectedLanguageService: SelectedLanguageService) {}
+  /**
+   * Checks if the device is mobile or tablet.
+   * @returns {boolean} Returns true if the device is mobile or tablet, otherwise false.
+   */
+  private getIfDeviceIsMobileOrTablet() {
+    // Detect if at least one pointing device has limited accuracy. If yes, it is a mobile / tablet device.
+    this.isCurrentDeviceMobileOrTablet = window.matchMedia(
+      '(any-pointer:coarse)'
+    ).matches;
+  }
 
   protected changeMouseState(state: string, i: number): void {
-    if (state === 'rest' && this.windowInnerWith > 830)
-      this.projects[i].state = state;
-    else this.projects[i].state = 'hover';
+    if (!this.isCurrentDeviceMobileOrTablet) {
+      if (state === 'rest' && this.windowInnerWith > 830)
+        this.setMouseAndClickedStateEqual(false, i);
+      else this.setMouseAndClickedStateEqual(true, i);
+    }
   }
 
-  protected changeMouseStateOnClick(state: string, i: number): void {
-    // TODO: here later
+  protected changeMouseStateOnClick(i: number): void {
+    if (this.isCurrentDeviceMobileOrTablet) {
+      const state = !this.projects[i].clicked;
+
+      this.setMouseAndClickedStateEqual(state, i);
+    }
+  }
+
+  private setMouseAndClickedStateEqual(
+    equalMouseClickedState: boolean,
+    i: number
+  ) {
+    if (equalMouseClickedState) {
+      this.projects[i].state = 'hover';
+      this.projects[i].clicked = true;
+    } else {
+      this.projects[i].state = 'rest';
+      this.projects[i].clicked = false;
+    }
   }
 
   protected positionArrow(even: boolean): string {

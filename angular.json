@@ -31,13 +31,13 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             //TODO: Finally maybe assets property has to be changed to "assets": ["src/assets"].
-            "assets": ["src/favicon.ico", "src/assets"],
             // "assets": [
             //   {
             //     "glob": "**/*",
             //     "input": "public"
             //   }
             // ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
@@ -51,8 +51,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "15kb",
-                  "maximumError": "20kb"
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
                 }
               ],
               "outputHashing": "all"
@@ -94,13 +94,12 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             //TODO: Finally maybe assets property has to be changed to "assets": ["src/assets"].
-            "assets": ["src/favicon.ico", "src/assets"],
             // "assets": [
             //   {
             //     "glob": "**/*",
             //     "input": "public"
             //   }
-            // ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
           }

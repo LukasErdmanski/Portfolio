@@ -1,6 +1,4 @@
 @import "assets/styles/vars";
-// TODO: check if typography should be imported here OR in index.html to avoid double export of fonts files after ng build in dist folder
-@import "assets/fonts/typography";
 
 * {
   padding: 0;

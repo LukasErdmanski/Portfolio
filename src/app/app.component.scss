@@ -1,4 +1,5 @@
 @import "src/assets/styles/_vars";
+// TODO: try to import var and button only once not in every component in project, like fonts.CSS only once in index.html
 
 :host {
   display: block;

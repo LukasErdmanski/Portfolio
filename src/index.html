@@ -21,15 +21,35 @@
     <!-- TODO: Change the default angular facicon and past my own one -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-    <!-- The fonts can be sourced either from Google's CDN or from an existing CSS file.
-    Corresponding font files may be stored, for example, under '/assets/fonts'. They should be
-    linked in 'index.html', not in the app components. -->
+    <!-- The fonts are either included via a CDN from Google or from an existing CSS file
+     and corresponding font files stored, e.g., under '/assets/fonts', and are included in 'index.html',
+     not in the app components.
 
-    <!-- TODO: delete later the path in component styles and _button.scss if the fonts files are exported right by ng build only one time and the project works without style bugs -->
-    <!-- <link rel="stylesheet" href="assets/fonts/_typography.scss" /> -->
+    !! IMPORTANT !!
+    - To ensure the fonts are correctly exported only once to the dist/assets/fonts folder and not duplicated directly in dist,
+    - To ensure the paths to the individual font files are correctly resolved in SCSS, CSS when using ng serve or ng build,
+    - To ensure the fonts work in the Angular project and the individual components,
+    - To ensure the SCSS/CSS properties for the fonts, defined in CSS/SCSS variables, work everywhere,
+    - To ensure the same font settings are applied both for ng serve and ng build,
+
+    the fonts should be set up as follows:
+
+    1. The style font file (with @font-face { font-family: "XYZ-Font"; src: url("../fonts/xyz-font.eot"); ...} should be in .CSS format and NOT .SCSS format!
+    2. This file should only be included once in the entire Angular project in index.html with <link rel="stylesheet" href="assets/styles/fonts.css" />.
+    3. Configure "compilerOptions": { "baseUrl": "./", ... } in tsconfig.json.
+    4. Configure "assets": ["src/favicon.ico", "src/assets"] in angular.json.
+    5. Set the font family globally in the body once, unless components use different font families: body { font-family: 'XYZ-Fonts'; ... }.
+      Components can override their own font family properties in their style files.
+    6. Do not re-import assets/styles/fonts.css in angular.component.scss or in XYZ.component.scss with @import in SCSS or CSS. -->
+    <link rel="stylesheet" href="assets/styles/fonts.css" />
   </head>
 
   <body>
-    <app-root></app-root>
+    <app-root></app-root>z
+    <!-- TODO: Maybe add rotate component -->
+
+    <!-- TODO: Maybe add loading ccmponent -->
+
+    <!-- TODO: 404 not page found component  -->
   </body>
 </html>
