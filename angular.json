@@ -30,13 +30,6 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            //TODO: Finally maybe assets property has to be changed to "assets": ["src/assets"].
-            // "assets": [
-            //   {
-            //     "glob": "**/*",
-            //     "input": "public"
-            //   }
-            // ],
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
@@ -55,6 +48,8 @@
                   "maximumError": "100kb"
                 }
               ],
+              "baseHref": "/angular-projects/M14-16Portfolio/",
+              "deployUrl": "/angular-projects/M14-16Portfolio/",
               "outputHashing": "all"
             },
             "development": {
@@ -93,12 +88,6 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            //TODO: Finally maybe assets property has to be changed to "assets": ["src/assets"].
-            // "assets": [
-            //   {
-            //     "glob": "**/*",
-            //     "input": "public"
-            //   }
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []

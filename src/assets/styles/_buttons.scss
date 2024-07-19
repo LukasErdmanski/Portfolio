@@ -1,4 +1,4 @@
-@import "src/assets/styles/_vars";
+@import "src/assets/styles/_variables";
 
 .btn {
   height: 75px;
@@ -13,7 +13,6 @@
   transition: all 225ms ease-in-out;
   padding: clamp(8px, 2vw, 12px) clamp(12px, 13vw, 25px);
 
-  // Removes text decoration and inherits text color for all direct children
   & > * {
     text-decoration: none;
     color: inherit;

@@ -1,4 +1,5 @@
-@import "assets/styles/vars";
+@import "assets/styles/variables";
+@import "assets/styles/buttons";
 
 * {
   padding: 0;
@@ -66,21 +67,29 @@ h1 {
   }
 }
 
-.logo {
-  background-color: cadetblue;
-
-  height: 50px;
-  width: auto;
-  cursor: pointer;
-  transition: all 150ms ease-in-out;
+.logo-container {
+  display: flex;
+  transition: all 125ms ease-in-out;
 
   &:hover {
-    filter: invert(57%) sepia(60%) saturate(998%) hue-rotate(358deg)
-      brightness(100%) contrast(109%);
+    filter: drop-shadow(2px 2px 1px #ff9900);
     transform: scale(1.1);
   }
+}
 
-  @media (max-width: 450px) {
-    height: 35px;
+.logo {
+  width: 142px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+  }
+
+  @media (max-width: 400px) {
+    width: 100px;
   }
 }

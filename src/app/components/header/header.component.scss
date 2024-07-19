@@ -1,6 +1,7 @@
-@import "src/assets/styles/_vars";
+@import "src/assets/styles/_variables";
 
 .container {
+  height: 84px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,9 +9,6 @@
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: $background_clr;
-
-  // TODO: delete late, only for testing
-  background-color: blanchedalmond;
 
   .lang-container {
     display: flex;
@@ -34,6 +32,9 @@
   }
 
   .hamBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: $background_clr;
     border: none;
     cursor: pointer;

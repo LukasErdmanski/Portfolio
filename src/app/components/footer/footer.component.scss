@@ -1,4 +1,4 @@
-@import "src/assets/styles/_vars";
+@import "src/assets/styles/_variables";
 
 :host {
   display: block;
@@ -19,6 +19,14 @@
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
+
+    .logo-container {
+      filter: invert(1);
+
+      &:hover {
+        filter: invert(1) drop-shadow(2px 2px 1px #ff9900);
+      }
+    }
 
     div {
       display: flex;
