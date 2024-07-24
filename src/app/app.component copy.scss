@@ -1,11 +1,16 @@
 @import "src/assets/styles/_variables";
+
 :host {
   display: block;
   background-color: $background_clr;
 }
 
+body {
+  margin: 0;
+}
+
 header {
-  position: fixed;
+  position: sticky;
   z-index: 5;
   top: 0;
   left: 0;
@@ -20,8 +25,6 @@ header {
       top: 0;
       width: 100%;
       z-index: 1;
-      //  Prevents text selection on modern browsers
-      touch-action: manipulation;
     }
   }
 }
@@ -51,20 +54,20 @@ header {
   }
 }
 
+.scroll-container {
+  overflow-y: auto;
+  max-height: calc(100vh - 84px); 
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 footer {
   background-color: $primary_clr;
   padding: $padding-side;
   padding-bottom: 110px;
-}
-
-// Make the background of the main element dark and its children when nav menu is open.
-.dark-scroll-background {
-  background-color: $primary_clr;
-
-  ::ng-deep > * {
-    background-color: $primary_clr;
-    * {
-      opacity: 0;
-    }
-  }
+  flex-shrink: 0;
 }

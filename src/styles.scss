@@ -31,13 +31,6 @@ body {
   }
 }
 
-.body-namvmenu-open {
-  /* Height of the body should be 100 vh */
-  height: 100vh !important;
-  /* Margin at the body has to be like in the user agent style sheet, it means; 8px. Otherwise it does not work.  */
-  margin: revert !important;
-}
-
 h1 {
   font-family: $secondary_font;
   font-weight: $fw-black;

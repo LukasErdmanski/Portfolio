@@ -39,8 +39,6 @@ export class HeaderComponent {
 
   protected openNavbar(): void {
     this.navMenuService.setMenuOpenState(!this.navMenuService.isMenuOpen());
-    this.habBtn.nativeElement.setAttribute.ariaExpanded =
-      this.navMenuService.isMenuOpen();
     setTimeout(() => {
       const selectLangBtnElem: Element = document.querySelector(
         '.' + this.selectedLanguuageService.getCurrentLanguage()

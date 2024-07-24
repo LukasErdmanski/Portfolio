@@ -2,18 +2,18 @@
   <div class="header-wrapper">
     <app-header></app-header>
     <nav>
-      <app-navmenu
-        *ngIf="this.navMenuService.isMenuOpen()"
-        [@childAnimation]
-      ></app-navmenu>
+      <app-navmenu *ngIf="this.navMenuService.isMenuOpen()"></app-navmenu>
     </nav>
   </div>
 </header>
 
-<main *ngIf="!this.navMenuService.isMenuOpen()">
+<main
+  id="main"
+  [class.dark-scroll-background]="this.navMenuService.isMenuOpen()"
+>
   <router-outlet></router-outlet>
 </main>
 
-<footer *ngIf="!this.navMenuService.isMenuOpen()">
+<footer [class.dark-scroll-background]="this.navMenuService.isMenuOpen()">
   <app-footer></app-footer>
 </footer>

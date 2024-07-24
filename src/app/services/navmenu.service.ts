@@ -1,45 +1,53 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavMenuService {
-  private menuOpenState: boolean = false;
-  private scrollPosition = { top: 0, left: 0 };
+  public menuOpenState: boolean = false;
+  public scrollYPosition: number = 0;
+  public mainElement: HTMLElement | null = null;
 
   public isMenuOpen(): boolean {
     return this.menuOpenState;
   }
 
   public setMenuOpenState(openState: boolean): void {
-    if (openState) {
-      this.saveWindowscrollPosition();
-      this.setClassForBodyInAccordingToOpenState(openState);
-    } else {
-      this.setClassForBodyInAccordingToOpenState(openState);
-      this.setWindowscrollPosition();
+    this.mainElement = document.querySelector('main');
+    if (this.mainElement) {
+      if (openState) this.saveMainElementScrollPosition();
+      else this.restoreMainElementScrollPosition();
+      this.menuOpenState = openState;
     }
-
-    this.menuOpenState = openState;
   }
 
-  private saveWindowscrollPosition(): void {
-    this.scrollPosition = {
-      top: window.scrollY,
-      left: window.scrollX,
-    };
-  }
-
-  private setWindowscrollPosition(): void {
-    window.scrollTo(this.scrollPosition.left, this.scrollPosition.top);
-  }
-
-  private setClassForBodyInAccordingToOpenState(trueOrFalse: boolean): void {
-    if (trueOrFalse) {
-      document.body.classList.add('body-namvmenu-open');
-    } else {
-      document.body.classList.remove('body-namvmenu-open');
+  public saveMainElementScrollPosition(): void {
+    if (this.mainElement) {
+      const rect = this.mainElement.getBoundingClientRect();
+      this.scrollYPosition = rect.top;
     }
+  }
+
+  public restoreMainElementScrollPosition(): void {
+    if (this.mainElement) {
+      const rect = this.mainElement.getBoundingClientRect();
+      const currentScrollYPosition = rect.top;
+
+      if (currentScrollYPosition !== this.scrollYPosition) {
+        // Temporarily disable scroll snapping
+        this.setScrollBehavior('auto');
+
+        const scrollAmount = this.scrollYPosition * -1;
+        window.scrollTo(0, scrollAmount);
+
+        this.setScrollBehavior('smooth');
+      }
+    }
+  }
+
+  private setScrollBehavior(value: 'auto' | 'smooth'): void {
+    document.documentElement.style.scrollBehavior = value;
+    document.body.style.scrollBehavior = value;
   }
 
   public moveToSection(section: string): void {
