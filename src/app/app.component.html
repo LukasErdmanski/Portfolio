@@ -1,19 +1,23 @@
-<header [class.header-navmenu-open]="this.navMenuService.isMenuOpen()">
-  <div class="header-wrapper">
-    <app-header></app-header>
-    <nav>
-      <app-navmenu *ngIf="this.navMenuService.isMenuOpen()"></app-navmenu>
-    </nav>
-  </div>
-</header>
+<app-rotate-device-info class="landscape-orientation"></app-rotate-device-info>
 
-<main
-  id="main"
-  [class.dark-scroll-background]="this.navMenuService.isMenuOpen()"
->
-  <router-outlet></router-outlet>
-</main>
+<div class="portrait-orientation">
+  <header [class.header-navmenu-open]="this.navMenuService.isMenuOpen()">
+    <div class="header-wrapper">
+      <app-header></app-header>
+      <nav>
+        <app-navmenu *ngIf="this.navMenuService.isMenuOpen()"></app-navmenu>
+      </nav>
+    </div>
+  </header>
 
-<footer [class.dark-scroll-background]="this.navMenuService.isMenuOpen()">
-  <app-footer></app-footer>
-</footer>
+  <main
+    id="main"
+    [class.dark-scroll-background]="this.navMenuService.isMenuOpen()"
+  >
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer [class.dark-scroll-background]="this.navMenuService.isMenuOpen()">
+    <app-footer></app-footer>
+  </footer>
+</div>

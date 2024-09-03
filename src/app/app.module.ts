@@ -29,6 +29,7 @@ import {
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DOCUMENT } from '@angular/common';
+import { RotateDeviceInfoComponent } from './components/rotate-device-info/rotate-device-info.component';
 
 /**
  * Factory function for the TranslateLoader.
@@ -61,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient, document: any) {
     HeaderComponent,
     NavmenuComponent,
     PortfolioComponent,
+    RotateDeviceInfoComponent,
     SkillsComponent,
     SocialsComponent,
     MainContentComponent,

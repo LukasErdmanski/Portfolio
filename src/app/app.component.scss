@@ -4,6 +4,24 @@
   background-color: $background_clr;
 }
 
+.landscape-orientation {
+  display: none;
+}
+
+.portrait-orientation {
+  display: inline;
+}
+
+@media (max-height: 576px) and (orientation: landscape) {
+  .landscape-orientation {
+    display: inline;
+  }
+
+  .portrait-orientation {
+    display: none;
+  }
+}
+
 header {
   position: fixed;
   z-index: 5;
