@@ -1,0 +1,40 @@
+::ng-deep body {
+  margin: 8px;
+  background-color: initial;
+  font-size: initial !important;
+}
+
+::ng-deep app-root {
+  background-color: initial !important;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  font-family: initial;
+  font-weight: initial;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  margin-top: 0px;
+  text-shadow: unset;
+  color: initial;
+  cursor: initial;
+  transition: initial;
+  width: initial;
+  box-sizing: initial;
+}
+
+p {
+  display: block;
+  font-size: initial;
+  font-family: initial;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
