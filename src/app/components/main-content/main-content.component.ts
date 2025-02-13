@@ -4,12 +4,4 @@ import { Component } from '@angular/core';
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss',
 })
-export class MainContentComponent {
-  protected sectionsIds: string[] = [
-    'landing-page',
-    'about-me',
-    'skills',
-    'portfolio',
-    'contact',
-  ];
-}
+export class MainContentComponent {}

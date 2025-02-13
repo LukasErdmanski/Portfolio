@@ -23,8 +23,22 @@ export const routes: Routes = [
   { path: '**', title: 'Page Not Found', component: NotFoundComponent },
 ];
 
+export const VALID_FRAGMENTS: string[] = [
+  'landing-page',
+  'about-me',
+  'skills',
+  'portfolio',
+  'contact',
+];
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      // enableTracing: true,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

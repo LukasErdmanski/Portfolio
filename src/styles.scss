@@ -16,13 +16,24 @@ html::-webkit-scrollbar {
 html {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
+
+  // overflow: scroll;
+  // height: 100%;
 }
 
 body {
   font-family: $primary_font, sans-serif;
   font-size: $fs-regular;
   background-color: $primary_clr;
+
+  // overflow: scroll;
+  // height: 100% !important;
+}
+
+.fullHeightScrollStyle{
+  // overflow: scroll !important;
+  // height: 100% !important;"
 }
 
 @media (max-width: 630px) {

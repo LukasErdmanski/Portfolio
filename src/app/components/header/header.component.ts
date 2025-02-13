@@ -61,4 +61,8 @@ export class HeaderComponent {
       this.selectedLanguuageService.setCurrentLanguage('en');
     else this.selectedLanguuageService.setCurrentLanguage('de');
   }
+
+  protected scrollToTop(): void {
+    window.scrollTo(0, 0);
+  }
 }

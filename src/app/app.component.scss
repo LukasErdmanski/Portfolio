@@ -3,6 +3,9 @@
 :host {
   display: block;
   background-color: $background_clr;
+
+  // height: 100%;
+  // overflow: scroll;
 }
 
 .landscape-orientation {
@@ -21,6 +24,14 @@
   .portrait-orientation {
     display: none;
   }
+}
+
+.hidden {
+  border: 30px solid red;
+  background: white !important;
+  opacity: 0 !important;
+
+  // background-color: yellowgreen !important;
 }
 
 header {

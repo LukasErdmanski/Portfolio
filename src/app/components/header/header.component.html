@@ -1,8 +1,8 @@
 <div class="container">
   <a
     class="logo-container"
-    href="#"
-    (click)="this.navMenuService.setMenuOpenState(false)"
+    routerLink="/"
+    (click)="scrollToTop(); navMenuService.setMenuOpenState(false)"
   >
     <div class="logo">
       <img src="assets/img/Eddie_L_logo.png" alt="logo" />

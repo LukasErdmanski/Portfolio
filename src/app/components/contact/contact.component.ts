@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent {}
+export class ContactComponent {
+  protected scrollToTop(): void {
+    window.scrollTo(0, 0);
+  }
+}
